@@ -25,17 +25,29 @@ date: 2018-11-16 16:00:29
 2. **切分容量**：从集合 $A$ 到集合 $B$ 的所有边的容量之和；
 3. **最小** $st$ - **切分**：在给定 $st$ - 流量网络中找到容量最小的 $st$ - 切分。
 
-![最小切分问题](http://images.herculas.cn/image/blog/algorithms/graph5/mincut.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph5/mincut.png"
+    width="70%"
+    alt="最小切分问题"
+/>
+</div>
 
 ### 最大流 (Maxflow) 问题
 
 同样在一个 $st$ - 流量网络中，我们给出如下定义：
 
-1. $st$ - **流量 **(flow)：一种为流量网络中边的赋值方法，它需要满足边的流量大于 0 小于边的容量，且各顶点的流量需要严格平衡，即除 $s$ 和 $t$ 之外，所有顶点的流入量和流出量严格相等；
+1. $st$ - **流量**(flow)：一种为流量网络中边的赋值方法，它需要满足边的流量大于 0 小于边的容量，且各顶点的流量需要严格平衡，即除 $s$ 和 $t$ 之外，所有顶点的流入量和流出量严格相等；
 2. **网络总流量**：$st$ - 流量网络中顶点 $t$ 的流入量；
 3. **最大** $st$ - **流量**：在给定 $st$ - 流量网络中找到使得从 $s$ 到 $t$ 流量最大化的流量配置方案。
 
-![最大流问题](http://images.herculas.cn/image/blog/algorithms/graph5/maxflow.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph5/maxflow.png"
+    width="70%"
+    alt="最大流问题"
+/>
+</div>
 
 ## Ford-Fulkerson 算法
 
@@ -47,7 +59,13 @@ date: 2018-11-16 16:00:29
 
 上面的描述中，所谓**增广路径** (Augmenting Path) 指的是一条包含未使用容量的正向边和非空逆向边组成的由 $s$ 到 $t$ 的路径集合。
 
-![增广路径](http://images.herculas.cn/image/blog/algorithms/graph5/augmenting%20path.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph5/augmenting%20path.png"
+    width="70%"
+    alt="增广路径"
+/>
+</div>
 
 ## 最大流-最小切分定理
 
@@ -82,7 +100,13 @@ date: 2018-11-16 16:00:29
 
 首先我们要明确流量网络中边的数据结构。对于一条从顶点 $v$ 指向顶点 $w$ 的有向边，我们需要定义该边的流量 $f$ 和容量 $c$。
 
-![容量和流量](http://images.herculas.cn/image/blog/algorithms/graph5/flow%20and%20capacity.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph5/flow%20and%20capacity.png"
+    width="70%"
+    alt="容量和流量"
+/>
+</div>
 
 考虑到我们在算法中需要界定饱和正向边和空逆向边，我们需要定义**剩余容量** (Residual Capacity) 这样一个概念。每条边对应着剩余网络的 2 条边：
 
@@ -91,7 +115,15 @@ date: 2018-11-16 16:00:29
 
 需要注意的是，在剩余网络中，剩余流量对应的边和流量本身相反，正向边表示剩余的容量，而逆向边表示的是实际的流量。
 
-![剩余网络](http://images.herculas.cn/image/blog/algorithms/graph5/residual%20network.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph5/residual%20network.png"
+    width="80%"
+    alt="剩余网络"
+/>
+</div>
+
+流量剩余网络边的代码实现：
 
 ```Java
 public class FlowEdge {
@@ -187,7 +219,13 @@ public class FlowNetwork {
 
 示意图如下：
 
-![Flow Network](http://images.herculas.cn/image/blog/algorithms/graph5/flow%20network.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph5/flow%20network.png"
+    width="90%"
+    alt="Flow Network"
+/>
+</div>
 
 ### 最大流量算法
 

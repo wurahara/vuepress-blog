@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class="wrapper">
+    <br>
     <div v-for="item in filteredSites">
       <h2>
         <a :href="item.path">{{ item.title }}</a>
       </h2>
       <div v-html="item.excerpt"></div>
+      <br>
     </div>
   </div>
 </template>
@@ -21,7 +23,6 @@ export default {
   created () {
     this.siteProperties = this.$site
     this.filteredSites = this.filter(this.siteProperties.pages)
-    console.log(this.filteredSites)
   },
 
   methods: {
@@ -29,15 +30,28 @@ export default {
       let filteredSiteList = []
       let regEx = /\/blog\//
       siteList.forEach(element => {
-        // console.log(element.path)
-        // console.log(regEx.test(element.path))
         if (regEx.test(element.path) && element.path !== '/blog/') {
           filteredSiteList.push(element)
         }
       })
+      let sortedSiteList = filteredSiteList.sort(this.compare('frontmatter', 'date'))
+      return sortedSiteList
+    },
 
-      return filteredSiteList
+    compare (property1, property2) {
+      return (obj1, obj2) => {
+        let datetime1 = new Date(obj1[property1][property2])
+        let datetime2 = new Date(obj2[property1][property2])
+        return datetime2 - datetime1
+      }
     }
   }
 }
 </script>
+
+<style scoped>
+.wrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+</style>

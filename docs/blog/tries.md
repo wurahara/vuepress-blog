@@ -48,7 +48,13 @@ public class StringST<Value> {
 - 每个结点都有 $R$ 个子结点，其中 $R$ 为字母表的基数；
 - 每个结点包含一个对应值，该值或为`null`，或为某个字符串键关联的值。
 
-![单词查找树](http://images.herculas.cn/image/blog/algorithms/string2/tries.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string2/tries.png"
+    width="75%"
+    alt="单词查找树"
+/>
+</div>
 
 ### 键搜索
 
@@ -57,7 +63,13 @@ public class StringST<Value> {
 - **搜索命中**：键的尾字符对应的结点的值非空；
 - **搜索未命中**：键的尾字符对应的结点中的值为`null`，或者查找结果结束于一条空链接。
 
-![键搜索](http://images.herculas.cn/image/blog/algorithms/string2/trie%20search.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string2/trie%20search.png"
+    width="75%"
+    alt="键搜索"
+/>
+</div>
 
 ### 键插入
 
@@ -66,13 +78,25 @@ public class StringST<Value> {
 - 遭遇空链接：表明单词查找树中不存在与该键对应的分支，需要为键中未被检查的字符创建结点，并对尾结点赋值；
 - 到达键的尾字符：无论尾字符结点关联值是否为`null`，都用新值覆盖它。
 
-![键插入](http://images.herculas.cn/image/blog/algorithms/string2/trie%20insertion.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string2/trie%20insertion.png"
+    width="75%"
+    alt="键插入"
+/>
+</div>
 
 ### 键删除
 
 想要在单词查找树中删除一个键值对，首先要找到键所对应的结点，并将其对应值设为`null`。如果该结点还有非空链接指向其他结点，则不需要进行其他操作。否则，就需要在树中删去该节点。如果删去该结点导致其父结点也不存在非空子结点，且父结点中无关联值，则继续删除父结点。以此类推。
 
-![键删除](http://images.herculas.cn/image/blog/algorithms/string2/trie%20deletion.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string2/trie%20deletion.png"
+    width="50%"
+    alt="键删除"
+/>
+</div>
 
 ### 基础实现
 
@@ -166,7 +190,15 @@ public class TrieST<Value> {
 - 对单词查找树进行中序遍历，将各键加入到队列中；
 - 维护从根结点到各椰子结点的各路径的字符序列。
 
-![键遍历](http://images.herculas.cn/image/blog/algorithms/string2/ordered%20iteration.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string2/ordered%20iteration.png"
+    width="60%"
+    alt="键遍历"
+/>
+</div>
+
+实现如下：
 
 ```Java
 public Iterable<String> keys() {
@@ -190,7 +222,13 @@ private void collect(Node x, String prefix, Queue<String> q) {
 
 和键遍历的实现方法类似，为`collect()`方法增加一个参数以指定匹配的模式。
 
-![通配符匹配](http://images.herculas.cn/image/blog/algorithms/string2/wildcard%20match.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string2/wildcard%20match.png"
+    width="90%"
+    alt="通配符匹配"
+/>
+</div>
 
 ```Java
 public Iterable<String> keysThatMatch(String pat) {
@@ -220,7 +258,15 @@ public void collect(Node x, String pre, String pat, Queue<String> q) {
 
 寻找给定字符串的最长键前缀，需要记录搜索路径上的最长键长度，直到搜索到完整的字符串或遭遇空链接为止。
 
-![最长前缀](http://images.herculas.cn/image/blog/algorithms/string2/longest%20prefix.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string2/longest%20prefix.png"
+    width="90%"
+    alt="最长前缀"
+/>
+</div>
+
+实现如下：
 
 ```Java
 public String longestPrefixOf(String s) {
@@ -256,7 +302,13 @@ private int search(Node x, String s, int d, int length) {
 
 考虑到 $R$ 路单词查找树的空间消耗过大，J. Bentley 和 R. Sedgewick 提出了三向单词查找树 (TST)。三向单词查找树的每个结点都只有三条链接，分别对应着当前字母小于、等于或大于结点字母的所有键。在 $R$ 路单词查找树中，每个非空链接依照索引隐式的保存它所对应的字符，而在三向单词查找树中，字符需要被显式地保存在结点中。
 
-![三向单词查找树](http://images.herculas.cn/image/blog/algorithms/string2/TST.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string2/TST.png"
+    width="90%"
+    alt="三向单词查找树"
+/>
+</div>
 
 ### 键搜索与插入
 
@@ -268,7 +320,13 @@ private int search(Node x, String s, int d, int length) {
 
 当键搜索结束时结点的值非空，则搜索命中。若搜索过程遭遇空链接，或者键搜索结束时结点值为`null`，则搜索未命中。
 
-![TST键搜索](http://images.herculas.cn/image/blog/algorithms/string2/tst%20search.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string2/tst%20search.png"
+    width="45%"
+    alt="TST键搜索"
+/>
+</div>
 
 在键搜索的基础上，键插入的操作可以很简单地实现。在插入新键时，首先进行搜索，然后和 $R$ 路单词查找树一样，在树中补全键尾的所有结点。
 

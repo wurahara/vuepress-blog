@@ -8,8 +8,6 @@ tags:
 date: 2018-10-26 10:36:41
 ---
 
-# 算法与数据结构学习笔记——二叉搜索树
-
 本篇介绍的是一种能将上一篇中链表插入操作的灵活性和有序数组查找的高效性结合起来的符号表实现——**二叉搜索树(Binary Search Tree)**。
 
 我们在排序算法的第三篇中曾经介绍过二叉树的概念，在此不妨复习一下。二叉树指一种结点的有限集合，该集合或者为空，或者是由一个根结点加上两棵分别称为左子树和右子树的、互不相交的二叉树组成。一棵二叉搜索树首先是一棵二叉树，其中每个结点都含有一个键和一个值，且每个结点的键都大于其左子树中任意结点的键而小于其右子树中任意结点的键。
@@ -112,13 +110,19 @@ private void put(Node root, Key key, Value val) {
 
 二叉搜索树的性能在很大程度上取决于树的形状，而树的形状则由多个因素决定。即使相同的一组结点，在经过不同的插入顺序之后，也会构造出完全不同形状的二叉搜索树，如下图所示。
 
-![Tree shape](http://images.herculas.cn/image/blog/algorithms/search2/tree%20shape.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/search2/tree%20shape.png"
+    width="80%"
+    alt="Tree shape"
+/>
+</div>
 
 考虑到任何形状的树结构，其查找和插入所需的比较次数都是结点深度 + 1，我们可以得到以下结论：
 
-1. 完全平衡的状态下，每个叶子结点到根结点的距离均为约$\lg N$，即时间复杂度约为$\lg N$；
-2. 在最坏情况下，搜索路径上有$N$个结点，时间复杂度为$N$；
-3. 由$N$个随机键构造的二叉搜索树的查找命中平均所需的比较次数约为$1.39 \lg N$。
+1. 完全平衡的状态下，每个叶子结点到根结点的距离均为约 $\lg N$ ，即时间复杂度约为 $\lg N$ ；
+2. 在最坏情况下，搜索路径上有 $N$ 个结点，时间复杂度为 $N$；
+3. 由 $N$ 个随机键构造的二叉搜索树的查找命中平均所需的比较次数约为 $1.39 \lg N$。
 
 这样，我们可以得到以下的性能分析比较表。
 
@@ -136,7 +140,13 @@ private void put(Node root, Key key, Value val) {
 
 根据二叉搜索树的定义，最小键即为二叉树最左边的结点，而最大键即为二叉树最右边的结点。我们可以用递归的方法找到树的最左边缘和最右边缘。下列代码给出了最小键的实现，最大键的实现与此相同，仅需将符号和左右子树调换即可。
 
-![Minimum and maximum](http://images.herculas.cn/image/blog/algorithms/search2/minimum%20and%20maximum.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/search2/minimum%20and%20maximum.png"
+    width="50%"
+    alt="Minimum and maximum"
+/>
+</div>
 
 ```Java
 public Key min() {
@@ -155,7 +165,13 @@ private Node min(Node root) {
 
 向上取整(Floor)指的是树中小于指定键的最大结点，而向下取整(Ceiling)指的是树中大指定键的最小结点，如图所示。如果指定键`key`小于搜索树的根结点，那么`floor(key)`一定在根结点的左子树中；如果指定键`key`大于搜索树的根结点，那么只有在根结点的右子树中含有小于等于`key`的结点时，`floor(key)`才会出现在右子树中，否则根结点即为`floor(key)`。`ceiling()`的算法与此类似，不再赘述。
 
-![Floor and ceiling](http://images.herculas.cn/image/blog/algorithms/search2/floor%20and%20ceiling.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/search2/floor%20and%20ceiling.png"
+    width="50%"
+    alt="Floor and ceiling"
+/>
+</div>
 
 ```Java
 public Key floor(Key key) {
@@ -189,7 +205,7 @@ private Node floor(Node root, Key key) {
 
 ### 选择(Select)与排名(Rank)
 
-选择(select)操作指寻找搜索树中排名为$k$的键（即树中恰好有$k$个小于它的键）。如果左子树中的结点数$t$大于$k$，我们就递归地在左子树中查找排名为$k$的键；如果左子树结点数$t$恰好等于$k$，则返回根结点的键；如果$t$小于$k$，就递归地在右子树中查找排名为$k - t - 1$的键。
+选择(select)操作指寻找搜索树中排名为 $k$ 的键（即树中恰好有 $k$ 个小于它的键）。如果左子树中的结点数 $t$ 大于 $k$，我们就递归地在左子树中查找排名为 $k$ 的键；如果左子树结点数 $t$ 恰好等于 $k$，则返回根结点的键；如果 $t$ 小于 $k$，就递归地在右子树中查找排名为 $k - t - 1$ 的键。
 
 ```Java
 public Key select(int k) {
@@ -211,7 +227,7 @@ private Node select(Node root, int k) {
 }
 ```
 
-排名(Rank)是选择(Select)的逆算法，功能是返回指定键的排名。如果给定键和根结点的键相等，则返回左子树的结点总数$t$；如果小于根结点，递归地返回该键在左子树中的排名；若大于根结点，递归地得到该键在右子树中的排名，并加上$t + 1$。
+排名(Rank)是选择(Select)的逆算法，功能是返回指定键的排名。如果给定键和根结点的键相等，则返回左子树的结点总数 $t$；如果小于根结点，递归地返回该键在左子树中的排名；若大于根结点，递归地得到该键在右子树中的排名，并加上 $t + 1$。
 
 ```Java
 public int rank(Key key) {
@@ -268,7 +284,7 @@ private void inorder(Node root, Queue<Key> queue) {
 |选择(select)|$N$|$1$|$h$|
 |顺序遍历|$N \lg N$|$N$|$N$|
 
-上表中$h$表示二叉搜索树的深度，在随机插入键值对的情况下和$\lg N$成正比。
+上表中 $h$ 表示二叉搜索树的深度，在随机插入键值对的情况下和 $\lg N$ 成正比。
 
 ## BST的元素删除
 
@@ -278,7 +294,15 @@ private void inorder(Node root, Queue<Key> queue) {
 
 对于删除最小键，我们要不断深入根结点的左子树中，直到遇到`null`，然后将指向该结点的指针指向该结点的右子树。这样，没有任何指针指向要被删除的结点，这样GC会清理掉该结点。随后，递归的回调会自动在递归路径上更新各个结点的计数器的值。`deleteMax()`的实现与此类似，不再赘述。
 
-![Delete the minimum](http://images.herculas.cn/image/blog/algorithms/search2/delete%20the%20minimum.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/search2/delete%20the%20minimum.png"
+    width="40%"
+    alt="Delete the minimum"
+/>
+</div>
+
+`deleteMin()`的具体实现如下：
 
 ```Java
 public void deleteMin() {
@@ -305,11 +329,23 @@ private Node deleteMin(Node root) {
 
 对于第1种情况，只要将指向该结点的父结点的指针置空即可。
 
-![Case 1](http://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%201.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%201.png"
+    width="90%"
+    alt="Case 1"
+/>
+</div>
 
 对于第2种情况，只要将指向该结点的父结点的指针指向该结点的左子树或右子树即可。
 
-![Case 2](http://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%202.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%202.png"
+    width="90%"
+    alt="Case 2"
+/>
+</div>
 
 对于第3种情况，需要用该结点的后继结点替代该结点的位置。后继结点即该结点的右子树中的最小结点。我们需要用3个步骤完成这个任务：
 
@@ -317,7 +353,15 @@ private Node deleteMin(Node root) {
 2. 删除`t`的右子树中的最小结点；
 3. 将`x`置于`t`的原位置。
 
-![Case 3](http://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%203.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%203.png"
+    width="70%"
+    alt="Case 3"
+/>
+</div>
+
+删除任意键的实现如下：
 
 ```Java
 public void delete(Key key) {

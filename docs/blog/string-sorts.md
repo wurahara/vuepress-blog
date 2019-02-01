@@ -33,31 +33,69 @@ Java 还提供了和 StringBuilder 类相似的 StringBuffer 类，该类的特�
 
 ## 键索引计数法 (Key-indexed Counting)
 
-我们之前介绍的几种基于`compareTo()`操作的排序算法，最好的时间复杂度在 $N \log N$级别。然而对于属于有限字符集的字符串来说，我们可以使用`charAt()`方法作为原子操作来提高算法效率。
+我们之前介绍的几种基于`compareTo()`操作的排序算法，最好的时间复杂度在 $N \log N$ 级别。然而对于属于有限字符集的字符串来说，我们可以使用`charAt()`方法作为原子操作来提高算法效率。
 
 ### 键索引
 
 作为热身，我们首先介绍一种用于小整数键的简单排序方法，称为键索引计数法。我们的场景是将学生分为若干组，比如 1, 2, 3 等等。假设数组`a[]`中的每个元素都保存了一个名字和键，其中键在 $0$ 和 $R - 1$ 之间。如图所示。
 
-![适用于键索引计数法的典型情况](http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%20counting.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%20counting.png"
+    width="35%"
+    alt="适用于键索引计数法的典型情况"
+/>
+</div>
 
 该方法的基本思路如下：
 
-1. 词频统计：将`a[]`按照组号排序，并统计每个键出现的次数；
+1. **词频统计**
 
- ![键索引1](http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%201.png)
+将`a[]`按照组号排序，并统计每个键出现的次数；
 
-2. 将频率转化为索引：将每个键出现的频率按次堆积累加，作为索引表；
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%201.png"
+    width="35%"
+    alt="键索引1"
+/>
+</div>
 
- ![键索引2](http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%202.png)
+2. **将频率转化为索引**
 
-3. 数据分类：按照索引表的索引值将每个键拷贝到冗余数组的指定位置；
+将每个键出现的频率按次堆积累加，作为索引表；
 
- ![键索引3](http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%203.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%202.png"
+    width="35%"
+    alt="键索引2"
+/>
+</div>
 
-4. 回写：将排好序的冗余数组覆写原数组。
+3. **数据分类**
 
- ![键索引4](http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%204.png)
+按照索引表的索引值将每个键拷贝到冗余数组的指定位置；
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%203.png"
+    width="40%"
+    alt="键索引3"
+/>
+</div>
+
+4. **回写**
+
+将排好序的冗余数组覆写原数组。
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%204.png"
+    width="40%"
+    alt="键索引4"
+/>
+</div>
 
 ### 实现
 
@@ -93,7 +131,13 @@ for (int i = 0; i < N; i++)
 
 首先要介绍的是低位优先基数排序算法，该算法适用于长度相同的一系列字符串的快速排序。该算法的思路极其简单，对于长度为 $W$ 的一组字符串，从右向左以每个位置的字符作为键，然后用键索引计数法将字符串排序 $W$ 次。考虑到键索引计数法是稳定的，所以首先被排序的右侧字符不会在左侧字符排序时被打乱其相对位置。
 
-![LSD](http://images.herculas.cn/image/blog/algorithms/string1/LSD.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string1/LSD.png"
+    width="75%"
+    alt="LSD"
+/>
+</div>
 
 LSD 的实现如下：
 
@@ -126,9 +170,17 @@ public class LSD {
 
 ### 基本原理
 
-LSD 只适用于长度相同的一组字符串，而我们下面要介绍的 MSD 能够对长度不同的字符串进行排序。顾名思义，高位优先排序从左到右遍历字符串的所有字符。MSD 使用键索引计数法对所有字符串的首位进行排序，然后递归地将每个首字母对应的子数组排序。该算法和快排的思路极其相似，都是将数组切分为若干个子数组，然后对子数组递归排序。
+LSD 只适用于长度相同的一组字符串，而我们下面要介绍的 MSD 能够对长度不同的字符串进行排序。
 
-![MSD](http://images.herculas.cn/image/blog/algorithms/string1/MSD.png)
+顾名思义，高位优先排序从左到右遍历字符串的所有字符。MSD 使用键索引计数法对所有字符串的首位进行排序，然后递归地将每个首字母对应的子数组排序。该算法和快排的思路极其相似，都是将数组切分为若干个子数组，然后对子数组递归排序。
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string1/MSD.png"
+    width="90%"
+    alt="MSD"
+/>
+</div>
 
 ### 字符串末尾处理
 
@@ -206,9 +258,17 @@ public class MSD {
 
 ### 基本原理
 
-基于 MSD 的思路，我们可以对快排进行改造，使其适应字符串排序的需求。三向字符串快速排序算法的基本思路是根据键的首字母对字符串数组进行三向切分，然后对中间子数组中的下一个字符递归地继续排序。该算法比普通的 MSD 性能更好，因为三向切分总是将数组切分成三段，能够避免切分大量子数组带来的性能问题。这对于等值键、较长公共前缀键和小型数组的处理更加优异。
+基于 MSD 的思路，我们可以对快排进行改造，使其适应字符串排序的需求。
 
-![三向字符串快排](http://images.herculas.cn/image/blog/algorithms/string1/3-way.png)
+三向字符串快速排序算法的基本思路是根据键的首字母对字符串数组进行三向切分，然后对中间子数组中的下一个字符递归地继续排序。该算法比普通的 MSD 性能更好，因为三向切分总是将数组切分成三段，能够避免切分大量子数组带来的性能问题。这对于等值键、较长公共前缀键和小型数组的处理更加优异。
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string1/3-way.png"
+    width="75%"
+    alt="三向字符串快排"
+/>
+</div>
 
 ### 实现
 

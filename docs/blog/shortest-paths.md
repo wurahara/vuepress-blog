@@ -15,7 +15,7 @@ date: 2018-11-14 19:19:31
 
 ## 加权有向图的数据结构
 
-对于加权有向图的最短路径问题，具体地，我们实际上需要计算的是**单点最短路径**问题，即给定一幅加权有向图$G$和起点$s$，求从$s$到图中任意一点$v$的最短路径。鉴于需要求出所有顶点到源$s$的最短路径，我们实际上需要得到的是一棵**最短路径树** (SPT, Shortest Path Tree) ，这棵树是一棵根节点为$s$的有向树，树的每条路径都是有向图中的一条最短路径。
+对于加权有向图的最短路径问题，具体地，我们实际上需要计算的是**单点最短路径**问题，即给定一幅加权有向图 $G$ 和起点 $s$，求从 $s$ 到图中任意一点 $v$ 的最短路径。鉴于需要求出所有顶点到源 $s$ 的最短路径，我们实际上需要得到的是一棵**最短路径树** (SPT, Shortest Path Tree) ，这棵树是一棵根节点为 $s$ 的有向树，树的每条路径都是有向图中的一条最短路径。
 
 ### 加权有向边
 
@@ -86,7 +86,13 @@ public class EdgeWeightedDigraph {
 
 加权有向图的图示如下：
 
-![加权有向图的表示](http://images.herculas.cn/image/blog/algorithms/graph4/edge-weighted%20digraph.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/edge-weighted%20digraph.png"
+    width="50%"
+    alt="加权有向图的表示"
+/>
+</div>
 
 ### 最短路径类
 
@@ -102,9 +108,15 @@ public class SP {
 }
 ```
 
-实现上述最短路径类时，可以使用一个由顶点索引的`DirectedEdge`对象的上一跳数组`edgeTo[]`，其中`edgeTo[v]`的值为树中连接$v$和它父结点的边，即从$s$到$v$的最短路径上的最后一条边。约定`edgeTo[s]`值为`null`。此外，还需要使用一个由顶点索引的整型数组`distTo[]`，其中`distTo[v]`表示从$s$到$v$的已知最短路径长度。约定`distTo[s]`值为0。
+实现上述最短路径类时，可以使用一个由顶点索引的`DirectedEdge`对象的上一跳数组`edgeTo[]`，其中`edgeTo[v]`的值为树中连接 $v$ 和它父结点的边，即从 $s$ 到 $v$ 的最短路径上的最后一条边。约定`edgeTo[s]`值为`null`。此外，还需要使用一个由顶点索引的整型数组`distTo[]`，其中`distTo[v]`表示从 $s$ 到 $v$ 的已知最短路径长度。约定`distTo[s]`值为0。
 
-![最短路径类的数据结构](http://images.herculas.cn/image/blog/algorithms/graph4/Shortest-Paths%20data%20structures.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/Shortest-Paths%20data%20structures.png"
+    width="60%"
+    alt="最短路径类的数据结构"
+/>
+</div>
 
 上述两个接口的实现如下：
 
@@ -125,12 +137,18 @@ public Iterable<DirectedEdge> pathTo(int v) {
 
 ### 边的松弛 (Edge Relaxation)
 
-我们在之后介绍的所有 SP 实现算法都基于名为**松弛** (Relaxation) 的原子操作。首先我们介绍边的松弛。**放松**顶点$v$到$w$的边指检查从$s$到$w$的最短路径是否是经过$v$到$w$的，它分为两种情况：
+我们在之后介绍的所有 SP 实现算法都基于名为**松弛** (Relaxation) 的原子操作。首先我们介绍边的松弛。**放松**顶点 $v$ 到 $w$ 的边指检查从 $s$ 到 $w$ 的最短路径是否是经过 $v$ 到 $w$ 的，它分为两种情况：
 
-- 边松弛：如果从$v$到$w$的边能够提供更短的到达$w$的路径，则更新`edgeTo[w]`为$v$指向$w$的边，并相应地更新`distTo[w]`；
-- 边失效：如果从$v$到$w$的边未能改变到达$w$的最短路径，则什么都不做。
+- 边松弛：如果从 $v$ 到 $w$ 的边能够提供更短的到达 $w$ 的路径，则更新`edgeTo[w]`为 $v$ 指向 $w$ 的边，并相应地更新`distTo[w]`；
+- 边失效：如果从 $v$ 到 $w$ 的边未能改变到达 $w$ 的最短路径，则什么都不做。
 
-![边失效和边松弛](http://images.herculas.cn/image/blog/algorithms/graph4/edge%20relaxation.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/edge%20relaxation.png"
+    width="90%"
+    alt="边失效和边松弛"
+/>
+</div>
 
 边松弛的代码实现如下：
 
@@ -150,7 +168,13 @@ private void relax(DirectedEdge e) {
 
 顶点的松弛指放松一个给定顶点所指出的所有有向边。
 
-![顶点的松弛](http://images.herculas.cn/image/blog/algorithms/graph4/vertex%20relaxation.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/vertex%20relaxation.png"
+    width="40%"
+    alt="顶点的松弛"
+/>
+</div>
 
 我们可以重载上面的`relax()`方法来实现顶点的松弛：
 
@@ -170,17 +194,17 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 基于边的松弛和顶点的松弛，下面的命题证明了判断路径是否为最短路径的全局条件和放松一条边时检测的局部条件是等价的。
 
-令$G$为一幅加权有向图，顶点$s$为$G$中指定的一个起点，则`distTo[v]`为$s$到$G$中任意顶点$v$的最短路径当且仅当：
+令 $G$ 为一幅加权有向图，顶点 $s$ 为 $G$ 中指定的一个起点，则`distTo[v]`为 $s$ 到 $G$ 中任意顶点 $v$ 的最短路径当且仅当：
 
 - `distTo[s] = 0`；
-- 对于任意的顶点$v$，`distTo[v]`为$s$通过$G$中某条合法路径到达$v$的路径长度。对于无法到达的顶点，其`distTo[]`值为无穷大；
-- 对于图$G$中从$v$指向$w$的任意有向边$e$，均有`distTo[w] <= distTo[v] + e.weight()`成立。
+- 对于任意的顶点 $v$，`distTo[v]`为 $s$ 通过 $G$ 中某条合法路径到达 $v$ 的路径长度。对于无法到达的顶点，其`distTo[]`值为无穷大；
+- 对于图 $G$ 中从 $v$ 指向 $w$ 的任意有向边 $e$，均有`distTo[w] <= distTo[v] + e.weight()`成立。
 
 最优性条件为验证最短路径提供了一种简单的方法。基于上述命题，只需要遍历图中所有的边一遍，并检查最优性条件是否恒成立，即可验证所求路径是否为最短路径。
 
 ### 泛用算法 (Generic Algorithm)
 
-我们现在已经有了松弛算法和最优性条件，这样我们可以得到一个涵盖所有前面叙述过的最短路径算法的泛用算法：对于非负权重的加权有向图$G$，将`distTo[s]`初始化为0，其他顶点的`distTo[]`值设置为无穷大，重复放松$G$中的任意边，直到不存在可以继续放松的边，即所有边都失效为止。
+我们现在已经有了松弛算法和最优性条件，这样我们可以得到一个涵盖所有前面叙述过的最短路径算法的泛用算法：对于非负权重的加权有向图 $G$，将`distTo[s]`初始化为0，其他顶点的`distTo[]`值设置为无穷大，重复放松 $G$ 中的任意边，直到不存在可以继续放松的边，即所有边都失效为止。
 
 ## Dijkstra 算法
 
@@ -195,43 +219,103 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 为了更直观地理解 Dijkstra 算法的原理，我将以一个实例说明 Dijkstra 算法的操作轨迹。首先，下图是一幅加权有向图，边上的数字表示的是边的权重，顶点 0 为起点。
 
-![轨迹 1](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%201.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%201.png"
+    width="40%"
+    alt="轨迹 1"
+/>
+</div>
 
 将顶点 0 添加到树中，0 指出的 3 条边分别指向顶点 1，4 和 7。将这三个顶点加入优先级队列，更新这三个顶点的`distTo[]`和`edgeTo[]`。
 
-![轨迹 2](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%202.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%202.png"
+    width="60%"
+    alt="轨迹 2"
+/>
+</div>
 
 队列中目前顶点 1 的`distTo[]`值最小，从队列中删除顶点 1，将 `0 -> 1`添加到树中，将 1 指出的2 和 3 加入队列。考虑到`0 -> 1 -> 7`的权重大于原先的`0 -> 7`的权重，故只更新顶点 2 和 3 的`distTo[]`和`edgeTo[]`。
 
-![轨迹 3](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%203.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%203.png"
+    width="60%"
+    alt="轨迹 3"
+/>
+</div>
 
 下一个`distTo[]`最小的顶点是 7，将其从队列中删除，并将`0 -> 7`添加到树中。将 7 指出的 5 加入队列。更新 2 和 5 的`distTo[]`和`edgeTo[]`。
 
-![轨迹 4](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%204.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%204.png"
+    width="60%"
+    alt="轨迹 4"
+/>
+</div>
 
 下一个`distTo[]`最小的顶点是 4，将其从队列中删除，并将`0 -> 4`添加到树中。将 4 指出的 6 加入队列。更新 5 和 6 的`distTo[]`和`edgeTo[]`。
 
-![轨迹 5](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%209.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%209.png"
+    width="60%"
+    alt="轨迹 5"
+/>
+</div>
 
 下一个`distTo[]`最小的顶点是 5，将其从队列中删除，并将`4 -> 5`添加到树中。更新 2 和 6 的`distTo[]`和`edgeTo[]`。
 
-![轨迹 6](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%205.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%205.png"
+    width="60%"
+    alt="轨迹 6"
+/>
+</div>
 
 下一个`distTo[]`最小的顶点是 2，将其从队列中删除，并将`5 -> 2`添加到树中。更新 3 和 6 的`distTo[]`和`edgeTo[]`。
 
-![轨迹 7](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%206.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%206.png"
+    width="60%"
+    alt="轨迹 7"
+/>
+</div>
 
 下一个`distTo[]`最小的顶点是 3，将其从队列中删除，并将`2 -> 3`添加到树中。
 
-![轨迹 8](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%207.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%207.png"
+    width="60%"
+    alt="轨迹 8"
+/>
+</div>
 
 最后一个顶点是 6，将其从队列中删除，并将`2 -> 6`添加到树中。
 
-![轨迹 9](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%208.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%208.png"
+    width="60%"
+    alt="轨迹 9"
+/>
+</div>
 
 这样，根据`edgeTo[]`，我们就可以得到 Dijkstra 算法计算的最短路径树：
 
-![轨迹 10](http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%2010.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%2010.png"
+    width="60%"
+    alt="轨迹 10"
+/>
+</div>
 
 ### 数据结构
 
@@ -276,7 +360,7 @@ public class DijkstraSP {
 
 ### Dijkstra 算法的性能
 
-在一幅含有$V$个顶点和$E$条边的加权有向图中，使用 Dijkstra 算法计算根结点为给定顶点的最短路径树的空间复杂度在$V$级别，时间复杂度在$E \log V$级别。
+在一幅含有 $V$ 个顶点和 $E$ 条边的加权有向图中，使用 Dijkstra 算法计算根结点为给定顶点的最短路径树的空间复杂度在 $V$ 级别，时间复杂度在 $E \log V$ 级别。
 
 ## 无环加权有向图
 
@@ -316,18 +400,30 @@ public class AcyclicSP {
 
 最长路径问题的一个实际应用是并行任务调度问题 (Parallel Job Scheduling)。给定一组需要完成的任务和每个任务所需的时间，以及一组关于任务完成的先后次序的优先级限制。在满足限制条件的前提下应该如何安排任务以在最短的时间内完成所有的任务？
 
-![并行任务调度](http://images.herculas.cn/image/blog/algorithms/graph4/parallel%20job%20scheduling.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/parallel%20job%20scheduling.png"
+    width="70%"
+    alt="并行任务调度"
+/>
+</div>
 
 对于多线程的任务调度问题，我们使用一种名为**关键路径**(Critical Path)的方法。该方法证明，并行任务调度问题和无环加权有向图的最长路径问题等价。假设我们可以安排任意多个线程完成任务，那么我们任务的核心就是指定一条关键路径，即由优先级限制指定的调度方案的时间下限。
 
-为了解决并行任务调度问题，我们需要创建一幅无环加权有向图$G$，其中包括：
+为了解决并行任务调度问题，我们需要创建一幅无环加权有向图 $G$，其中包括：
 
-- 起点$s$和终点$t$；
+- 起点 $s$ 和终点 $t$；
 - 每个任务所代表的两个顶点，即其起始顶点和终止顶点；
-- 每个任务对应的 3 条边，分别是从起点$s$到该任务的起始顶点的边（权重为 0），从起始顶点到终止顶点的边（权重为任务时间）和从终止顶点到终点$t$的边（权重为 0）；
+- 每个任务对应的 3 条边，分别是从起点$s$到该任务的起始顶点的边（权重为 0），从起始顶点到终止顶点的边（权重为任务时间）和从终止顶点到终点 $t$ 的边（权重为 0）；
 - 优先级限制代表的边，由上一个任务的终止顶点指向下一个任务的起始顶点（权重为 0）。
 
-![任务调度问题的无环加权有向图表示](http://images.herculas.cn/image/blog/algorithms/graph4/Edge-weighted%20DAG%20representation%20of%20job%20scheduling.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/Edge-weighted%20DAG%20representation%20of%20job%20scheduling.png"
+    width="70%"
+    alt="任务调度问题的无环加权有向图表示"
+/>
+</div>
 
 如果将一系列任务的长度定义为完成所有任务的最早可能时间，那么最长的任务序列就是问题的关键路径，我们需要求的就是关键路径的长度。
 
@@ -368,20 +464,26 @@ public class CPM {
 
 当加权有向图中存在负权重边时，我们之间介绍的 Dijkstra 算法就失去了作用。因为存在负权重边时， 我们需要为了经过负权重边而绕弯，但 Dijkstra 算法可能会直接选择边较少的路径，如下图所示。
 
-![负权重问题](http://images.herculas.cn/image/blog/algorithms/graph4/negative%20weights.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/graph4/negative%20weights.png"
+    width="60%"
+    alt="负权重问题"
+/>
+</div>
 
 ### 负权重环 (Negative Cycle)
 
 在研究负权重边的最短路径问题之前，我们需要首先确定问题可以解决的下限。对于负权重环，即权重之和为负值的有向环，最短路径是不可求的。因为我们只要在负权重环上兜圈子，就可以得到任意小权重的路径。因此，我们有以下的严格命题：
 
-- 当且仅当加权有向图中至少存在一条从$s$到$v$的有向路径且所有从$s$到$v$的有向路径上的任意顶点都不存在于任何负权重环中时，$s$到$v$的最短路径才是存在的。
+- 当且仅当加权有向图中至少存在一条从 $s$ 到 $v$ 的有向路径且所有从 $s$ 到 $v$ 的有向路径上的任意顶点都不存在于任何负权重环中时，$s$ 到 $v$ 的最短路径才是存在的。
 
 ### Bellman-Ford 算法
 
-R. Bellman 和 L. Ford 发明了一种能够解决存在负权重边条件下的最短路径求解方法，对于任意含有$V$个顶点的加权有向图：
+R. Bellman 和 L. Ford 发明了一种能够解决存在负权重边条件下的最短路径求解方法，对于任意含有 $V$ 个顶点的加权有向图：
 
 - 将`distTo[s]`初始化为0，将其他顶点的`distTo[]`值都初始化为正无穷大；
-- 以任意顺序放松有向图的所有边，重复此操作$V$轮。
+- 以任意顺序放松有向图的所有边，重复此操作 $V$ 轮。
 
 Bellman-Ford 算法的实现非常简单，因为它并不指定边放松的顺序：
 

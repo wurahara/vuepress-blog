@@ -7,6 +7,8 @@ date: 2018-04-02 16:09:28
 
 之前在RESTful架构简介一文中，我们已经简要地介绍了常用的几个HTTP状态码，但一是还不够全面，二是不够系统。所以此次特地用这篇文章更详细地讨论HTTP状态码的基本知识和工程实践中的具体应用。
 
+<!-- more -->
+
 ## 规范历史
 在[《图解HTTP》](https://book.douban.com/subject/25863515/)一书中，作者介绍HTTP状态码的主要参考文献是RFC文档[RFC2616](https://tools.ietf.org/html/rfc2616)。该文档规范完成于1999年6月，是最早的关于HTTP/1.1的文档草案。该文档之后被一系列新的规范扩充和取代，他们分别是：
 1. [RFC7230，关于消息语法和路由(Message Syntax and Routing)](https://tools.ietf.org/html/rfc7230)；
@@ -17,8 +19,6 @@ date: 2018-04-02 16:09:28
 6. [RFC7235，关于认证(Authentication)](https://tools.ietf.org/html/rfc7235)。
 
 关于HTTP状态码的内容主要记录在RFC7231中。此外，还有一份补充文件记录了一些附加的状态码，即2012年3月通过的[RFC6585](https://tools.ietf.org/html/rfc6585)，该文档扩展了4XX和5XX的一些状态。
-
-<!-- more -->
 
 ## 状态码的分类
 状态码通常由三位数字组成，其首位揭示了该状态码的类别信息。

@@ -42,7 +42,13 @@ private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int
 
 下图展示了自顶向下归并排序的大概过程：
 
-![自顶向下的归并排序](http://images.herculas.cn/image/blog/algorithms/sort2/mergesort1.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/sort2/mergesort1.png"
+    width="60%"
+    alt="自顶向下的归并排序"
+/>
+</div>
 
 下面是自顶向下的归并排序的实现代码，它基于上一小节介绍的归并方法：
 
@@ -66,7 +72,7 @@ public class Merge {
 }
 ```
 
-可以证明，对于长度为N的任意数组，自顶向下的归并排序需要 $\frac{1}{2}N\lg N$ 至 $N\lg N$ 次比较，至多需要访问数组$6N\lg N$次。
+可以证明，对于长度为N的任意数组，自顶向下的归并排序需要 $\frac{1}{2}N\lg N$ 至 $N\lg N$ 次比较，至多需要访问数组 $6N\lg N$ 次。
 
 ### 自顶向下归排的改进
 
@@ -137,7 +143,13 @@ private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
 
 下图展示了自底向上的归并排序序的大概过程：
 
-![自底向上的归并排序](http://images.herculas.cn/image/blog/algorithms/sort2/mergesort2.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/sort2/mergesort2.png"
+    width="60%"
+    alt="自底向上的归并排序"
+/>
+</div>
 
 下面是自底向上的归并排序的实现代码，它同样也基于之前介绍的归并方法：
 
@@ -156,30 +168,42 @@ public class MergeBU {
 }
 ```
 
-对于长度为N的任意数组，自底向上的归并排序需要 $\frac{1}{2}N\lg N$ 至 $N\lg N$ 次比较，至多需要访问数组$6N\lg N$次。
+对于长度为N的任意数组，自底向上的归并排序需要 $\frac{1}{2}N\lg N$ 至 $N\lg N$ 次比较，至多需要访问数组 $6N\lg N$ 次。
 
 ### 排序算法的复杂度
 
-可以证明，没有任何一个基于比较的排序算法能够保证使用少于$lg(N!) ~ Nlg(N)$次比较将长度为N的数组排序。
+可以证明，没有任何一个基于比较的排序算法能够保证使用少于 $lg(N!) ~ Nlg(N)$ 次比较将长度为 $N$ 的数组排序。
 
-对于任何基于比较的排序算法，其比较操作可以用二叉树来表示。二叉树中的内部结点表示两个元素的一次比较操作，而叶子结点表示一个完成的排序。一个N为3的示例图如下。
+对于任何基于比较的排序算法，其比较操作可以用二叉树来表示。二叉树中的内部结点表示两个元素的一次比较操作，而叶子结点表示一个完成的排序。一个 $N$ 为 3 的示例图如下。
 
-![N = 3示例图](http://images.herculas.cn/image/blog/algorithms/sort2/complexity1.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/sort2/complexity1.png"
+    width="80%"
+    alt="N = 3示例图"
+/>
+</div>
 
-对于一个长度为N的数组，我们可以发现判决树至少应该有 N! 个叶子结点，因为对于N个元素必然有 N! 种全排列。另一个二叉树的基本性质是，高度为 h 的二叉树最多有 $2^h$ 个叶子结点。当二叉树为完全二叉树时，结点数取上限 $2^h$。
+对于一个长度为 $N$ 的数组，我们可以发现判决树至少应该有 $N!$ 个叶子结点，因为对于 $N$ 个元素必然有 $N!$ 种全排列。另一个二叉树的基本性质是，高度为 $h$ 的二叉树最多有 $2^h$ 个叶子结点。当二叉树为完全二叉树时，结点数取上限 $2^h$。
 
-![h示例图](http://images.herculas.cn/image/blog/algorithms/sort2/complexity2.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/sort2/complexity2.png"
+    width="90%"
+    alt="h示例图"
+/>
+</div>
 
 这样，我们可以得到叶子结点数量的大致范围：
 
 $$
-N! \leq 叶子结点数量 \leq 2^h
+N! \leq \text{Num ~~ of ~~ Leaf ~~ Node} \leq 2^h
 $$
 
 其中 h 为最坏情况下的比较次数。根据 Stirling 公式，上述范围可以近似为：
 
 $$
-\lg N! \leq 比较次数 \leq N\lg N
+\lg N! \leq \text{Comparison Times} \leq N\lg N
 $$
 
 考虑到归并排序的时间复杂度约为 $N\lg N$，可以认为归并排序是一种在时间上渐进最优的基于比较的排序算法。
@@ -203,7 +227,13 @@ $$
 
 数组切分的原理如下图所示：
 
- ![数组切分](http://images.herculas.cn/image/blog/algorithms/sort2/patition.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/sort2/patition.png"
+    width="90%"
+    alt="数组切分"
+/>
+</div>
 
 切分的实现如下：
 
@@ -228,7 +258,14 @@ private static int partition(Comparable[] a, int lo, int hi) {
 
 快排的大致过程如下图所示：
 
-![快速排序](http://images.herculas.cn/image/blog/algorithms/sort2/quicksort.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/sort2/quicksort.png"
+    width="60%"
+    alt="快速排序"
+/>
+</div>
+
 快排的框架实现如下代码：
 
 ```Java
@@ -252,7 +289,7 @@ public class Quick {
 
 ### 性能分析
 
-可以证明，对于长度为N的无重复数组，快速排序平均需要约$1.39N \lg N$次比较，最多需要$N^2 / 2$次比较。当数组足够大时，运行时间趋于平均状态。
+可以证明，对于长度为N的无重复数组，快速排序平均需要约 $1.39N \lg N$ 次比较，最多需要 $N^2 / 2$ 次比较。当数组足够大时，运行时间趋于平均状态。
 
 ### 算法改进
 
@@ -296,7 +333,13 @@ private static void sort(Comparable[] a, int lo, int hi) {
 
 一个简单的方法是将数组切分为三部分，分别对应于小于、等于和大于切分点的元素。示意图如下：
 
-![三向切分](http://images.herculas.cn/image/blog/algorithms/sort2/three%20way%20patitioning.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/sort2/three%20way%20patitioning.png"
+    width="45%"
+    alt="三向切分"
+/>
+</div>
 
 Dijkstra提出了一种基于该思想的三向切分的快速排序算法如下：
 
@@ -321,7 +364,13 @@ private static void sort(Comparable[] a, int lo, int hi) {
 
 该算法从左至右遍历数组一次，维护一个指针`lt`使得`a[lo ... lt - 1]`中的所有元素都小于切分点；另一个指针`gt`使得`a[gt + 1 ... hi]`中的所有元素都大于切分点；一个指针`i`使得`a[lt ... i - 1]`中的元素都等于切分点，而`a[i ... gt]`中的元素尚未确定。如下图所示。
 
-![](http://images.herculas.cn/image/blog/algorithms/sort2/three%20way%20pointers.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/sort2/three%20way%20pointers.png"
+    width="45%"
+    alt="三向指针"
+/>
+</div>
 
 起初i位于lo的位置，按照以下方式进行处理：
 

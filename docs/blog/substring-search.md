@@ -40,7 +40,14 @@ public static int search(String pat, String txt) {
 
 很容易发现，上述算法在最坏情况下的时间复杂度为 $MN$ 级别，其中 $M$ 是模式长度，$N$ 文本长度。当文本和模式中都存在及其类似的长重复段落时，每次匹配都在模式指针移到末尾时才发现失败，此时出现最坏情况。这样的情况在自然语言（如英语）中几乎不会出现，但是在二进制文本中是完全可能的。
 
-![暴力搜索的最坏情况](http://images.herculas.cn/image/blog/algorithms/string3/brute%20force%20worst%20case.png)
+<div  align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string3/brute%20force%20worst%20case.png"
+    width="70%"
+    hegiht="80%"
+    alt="暴力搜索的最坏情况"
+/>
+</div>
 
 但是一般情况下，模式指针增长的机会很小，因此该算法的一般运行时间和 $N$ 成正比，这是较为优异的性能表现。
 
@@ -48,7 +55,14 @@ public static int search(String pat, String txt) {
 
 暴力搜索的另一种实现使用了显式回退。在这种实现下，程序使用指针`i`跟踪长文本，使用指针`j`跟踪模式。当`i`和`j`指向的字符相匹配时，操作和基本实现相同。然而本实现中`i`指向的是文本中已经匹配过的字符序列的末端，而不像上一种实现中那样指向匹配序列的开头。因此，如果`i`和`j`指向的字符失配，需要将`j`指针回退到模式的开头，将`i`指针指向本次匹配开始位置的下一个字符。
 
-![显式回退的暴力搜索算法](http://images.herculas.cn/image/blog/algorithms/string3/explicit%20backup%20brute%20force.png)
+<div  align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string3/explicit%20backup%20brute%20force.png"
+    width="70%"
+    hegiht="80%"
+    alt="显式回退的暴力搜索算法"
+/>
+</div>
 
 ```Java
 public static int search(String pat, String txt) {
@@ -80,22 +94,38 @@ public static int search(String pat, String txt) {
 
 在 KMP 算法中，失配时不会回退指针`i`，而是借由数组`dfa[][]`指出模式指针`j`应该回退多少位。对于字符`c`，在比较了`c`和`pat.charAt(j)`后，`dfa[c][j]`表示的是应该和下个文本字符比较的模式字符的位置。
 
-![DFA](http://images.herculas.cn/image/blog/algorithms/string3/dfa.png)
+<div  align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string3/dfa.png"
+    width="85%"
+    hegiht="80%"
+    alt="DFA"
+/>
+</div>
 
 ### 构造 DFA
 
 KMP 算法的关键就是根据模式构造有限状态机，即对应的`dfa[][]`二维数组。
 
 1. **匹配转换项**
+
 当模式处于状态`j`，且文本中的字符`c`满足`c == pat.charAt(j)`，则此时`dfa[c][j] = j + 1`。
 
 2. **失配转换项**
+
 若在状态`j`时有`c != pat.charAt(j)`，那么匹配失败，需要重启自动机。重启自动机的实质是，我们并不想真的显式回退，而只是想将自动机重制到适当的状态上，仿佛已经回退了文本指针一样。
 在这个状态时，我们可以断言文本输入中的前`j - 1`个字符就是`pat[1 ... j - 1]`，跟着字符`c`。因此，假设重置指针，扫描会从`pat[1]`位置指示的字符开始，按照 DFA 的扫描顺序重新扫描一遍，直到扫描到`pat[j - 1]`位置的字符，并接着扫描字符`c`。因此，我们就可以依据已有的 DFA 内容确定后续的 DFA 数据。
 
 下图以模式 ABABAC 为例，演示了 DFA 的构造过程：
 
-![DFA的构造](http://images.herculas.cn/image/blog/algorithms/string3/DFA%20construction.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string3/DFA%20construction.png"
+    width="100%"
+    hegiht="80%"
+    alt="DFA的构造"
+/>
+</div>
 
 基于以上分析，我们可以总结以下 DFA 的构造方法。对于状态`j`：
 
@@ -169,13 +199,37 @@ public class KMP {
 具体地，如何确定失配时跳过多少个字符呢？我们考察以下几种情况：
 
 1. 失配时文本字符不在模式中，则将模式直接移动到失配字符之后；
-![Case 1](http://images.herculas.cn/image/blog/algorithms/string3/BM%20Case%201.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string3/BM%20Case%201.png"
+    width="60%"
+    hegiht="80%"
+    alt="Case 1"
+/>
+</div>
 
 2. 失配时文本字符在模式中也存在，则将模式中位置最右的该字符和文本中的该字符对齐；
-![Case 2a](http://images.herculas.cn/image/blog/algorithms/string3/BM%20Case%202a.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string3/BM%20Case%202a.png"
+    width="60%"
+    hegiht="80%"
+    alt="Case 2a"
+/>
+</div>
 
 3. 失配时文本字符在模式中也存在，但是如果采用 2 中的方法会使模式字符串像左移动，则将`i`加 1。
-![Case 2b](http://images.herculas.cn/image/blog/algorithms/string3/BM%20Case%202b.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string3/BM%20Case%202b.png"
+    width="60%"
+    hegiht="80%"
+    alt="Case 2b"
+/>
+</div>
 
 ### 算法实现
 
@@ -238,7 +292,14 @@ public class BoyerMoore {
 2. 对于每个位置`i`，计算文本从`i`到`M + i - 1`的散列；
 3. 将以上两个散列值比较，如果相同再继续考察两段字符串是否完全相同。
 
-![Rabin-Karp 算法](http://images.herculas.cn/image/blog/algorithms/string3/Rabin-Karp%20fingerprint%20search.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string3/Rabin-Karp%20fingerprint%20search.png"
+    width="75%"
+    hegiht="80%"
+    alt="Rabin-Karp 算法"
+/>
+</div>
 
 根据以上描述直接实现的算法会比暴力搜索更慢，因为计算散列会涉及到字符串中的各个字符，成本比直接比较更高。
 
@@ -247,13 +308,13 @@ public class BoyerMoore {
 考虑到散列计算需要耗费大量时间，我们需要利用散列的性质精简算法。我们用 $t_i$ 表示`txt.charAt(i)`，那么文本中起于`i`，止于`M + i - 1`的子字符串对应的值为：
 
 $$
-x_i = t_iR^{M-1} + t_{i+1}R^{M-2} + \dots + t_{i+ M - 1}R^{0}
+x_i = t_i R^{M-1} + t_{i+1} R^{M-2} + ... + t_{i+ M - 1} R^{0}
 $$
 
 同样地，起于`i + 1`，止于`M + i`的子字符串对应的值为：
 
 $$
-x_{i+1} = t_{i+1}R^{M-1} + t_{i+2}R^{M-2} + \dots + t_{i+ M}R^{0}
+x_{i+1} = t_{i+1}R^{M-1} + t_{i+2}R^{M-2} + ... + t_{i+ M}R^{0}
 $$
 
 于是，我们有：

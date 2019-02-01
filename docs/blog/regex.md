@@ -22,15 +22,19 @@ date: 2018-11-27 09:44:43
 基本的正则表达式由 3 种基本操作和作为操作数的字符组成。
 
 1. **连接操作 (Concatenation)**
+
 简单将字符进行前后连接，就构成了最简单的正则表达式。比如模式`AABAAB`只能匹配字符串 AABAAB。
 
 2. **或操作 (Or)**
+
 或操作用于在模式中选择若干种可能出现的子串。如果在两种选择之间放置了一个或运算符`|`，则该表达式匹配或运算符之前**或者**之后的子串。比如模式`AA|BAAB`匹配字符串 AA 或者 BAAB；模式`A|E|I|O|U`匹配字符串 A，E，I，O或者U。
 
 3. **闭包操作 (Closure)**
+
 闭包操作用于将闭包内的部分重复任意次数，使用运算符`*`表示。比如模式`AB*A`可以匹配字符串 AA 或者 ABBBBA。
 
 4. **括号 (Parentheses)**
+
 使用括号可以改变默认的优先级顺序。上面的三种基本操作的优先级顺序为 闭包 > 连接 > 或。使用括号可以显式地改变这样的优先级顺序。比如`(AB)*A`可以匹配的是字符串 A 或者 ABABABABA，需要注意的是这与 3 中类似模式的不同。
 
 ### 正则表达式的缩略写法
@@ -79,7 +83,13 @@ date: 2018-11-27 09:44:43
 
 下图是正则表达式`(A*B|AC)D`对应的 NFA 的实例：
 
-![NFA](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20example.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20example.png"
+    width="75%"
+    alt="NFA"
+/>
+</div>
 
 ## 模拟 NFA 的运行
 
@@ -104,32 +114,105 @@ date: 2018-11-27 09:44:43
 下面我们将会模拟正则表达式`(A*B|AC)D`匹配字符串 AABD 的过程：
 
 1. **初始状态**
+
 从起始状态开始，考察通过 $\epsilon$- 转换能够到达的所有状态，包括状态 0，1，2，3，4 和状态 6：
-![0](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%200.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%200.png"
+    width="75%"
+    alt="0"
+/>
+</div>
 
 2. **读入字符 A**
+
 读入文本中的第一个字符 A，能够匹配该字符的状态为状态 2 和状态 6，匹配后可以到达状态 3 和状态 7：
-![1-1](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%201-1.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%201-1.png"
+    width="75%"
+    alt="1-1"
+/>
+</div>
+
 借由状态 3 和状态 7 通过 $\epsilon$- 转换能够到达的状态有状态 2，3，4 和状态 7：
-![1-2](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%201-2.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%201-2.png"
+    width="75%"
+    alt="1-2"
+/>
+</div>
 
 3. **读入字符 AA**
+
 读入文本中的第二个字符 A，能够匹配该字符的状态为状态 2，匹配后可以到达状态 3：
-![2-1](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%202-1.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%202-1.png"
+    width="75%"
+    alt="2-1"
+/>
+</div>
+
 借由状态 3通过 $\epsilon$- 转换能够到达的状态有状态 2，3 和状态 4：
-![2-2](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%202-2.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%202-2.png"
+    width="75%"
+    alt="2-2"
+/>
+</div>
+
 
 4. **读入字符 AAB**
+
 读入文本中的第三个字符 B，能够匹配该字符的状态为状态 4，匹配后可以到达状态 5：
-![3-1](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%203-1.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%203-1.png"
+    width="75%"
+    alt="3-1"
+/>
+</div>
+
 借由状态 5通过 $\epsilon$- 转换能够到达的状态有状态 5，8 和状态 9：
-![3-2](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%203-2.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%203-2.png"
+    width="75%"
+    alt="3-2"
+/>
+</div>
 
 5. **读入字符 AABD**
+
 读入文本中的第四个字符 D，能够匹配该字符的状态为状态 9，匹配后可以到达状态 10：
-![4-1](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%204-1.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%204-1.png"
+    width="75%"
+    alt="4-1"
+/>
+</div>
+
 借由状态 10通过 $\epsilon$- 转换能够到达状态 11，即接受状态，匹配成功：
-![4-2](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%204-2.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20simulation%204-2.png"
+    width="75%"
+    alt="4-2"
+/>
+</div>
 
 ### 代码实现
 
@@ -181,26 +264,58 @@ public boolean recognizes(String txt) {
 ### 操作与构造
 
 1. **连接操作**
+
 连接操作和 NFA 中的匹配转换是等效的，使用字符数组`re[]`可以表示正则表达式中的状态和所有匹配转换。
 
 2. **括号**
+
 遭遇括号时，需要将左括号的索引压入栈中，然后在遭遇右括号时将左括号弹出，并进行相关操作（下面将会介绍）。
 
 3. **闭包操作**
+
 如果闭包出现在单个字符之后，将该字符和`*`字符之间添加相互指向的两条 $\epsilon$- 转换；
-![单字符闭包](http://images.herculas.cn/image/blog/algorithms/string4/single-character%20closure.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/single-character%20closure.png"
+    width="70%"
+    alt="单字符闭包"
+/>
+</div>
+
 如果闭包出现在右括号之后，将对应的左括号和`*`字符之间添加相互指向的两条 $\epsilon$- 转换。
-![闭包表达式](http://images.herculas.cn/image/blog/algorithms/string4/closure%20expression.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/closure%20expression.png"
+    width="70%"
+    alt="闭包表达式"
+/>
+</div>
 
 4. **或操作**
+
 或运算符`|`必然出现在一对括号之中，在遭遇或运算符时，需要添加两条 $\epsilon$- 转换：一条从左括号指向`|`后的字符，另一条从`|`指向右括号。此外，还需要将`|`的索引压入栈中，这样在到达右括号时可以得到所需的信息。
-![或操作](http://images.herculas.cn/image/blog/algorithms/string4/or%20expression.png)
+
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/or%20expression.png"
+    width="70%"
+    alt="或操作"
+/>
+</div>
 
 ### NFA 构造实例
 
 下图展示了正则表达式`(A*B|AC)D`对应的 NFA 的构造过程：
 
-![NFA 的构造](http://images.herculas.cn/image/blog/algorithms/string4/NFA%20construction.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/string4/NFA%20construction.png"
+    width="90%"
+    alt="NFA 的构造"
+/>
+</div>
 
 ### 代码实现
 
