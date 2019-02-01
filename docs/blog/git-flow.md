@@ -1,17 +1,17 @@
 ---
-title: git-flow工作流程
+title: git flow 工作流程
 tags: git
 date: 2018-04-04 14:10:26
 ---
 
 
-最近重启了招生办的项目。为了协调团队内的工作流程，大师兄建议我们学习一下git-flow，用来统一团队成员的版本管理风格。这篇文章就是对git-flow的简单总结。
+最近重启了招生办的项目。为了协调团队内的工作流程，大师兄建议我们学习一下 git flow，用来统一团队成员的版本管理风格。这篇文章就是对 git flow 的简单总结。
 
 <!-- more -->
 
 ## 分支的模式
 
-git-flow会预设两个主分支在版本库中，分别是：
+git flow 会预设两个主分支在版本库中，分别是：
 
 1. `master`：该分支只能用来容纳产品代码。任何团队成员在任何情况下都不能直接向`master`分支提交代码，只能通过操作其它指定的、独立的特性分支，并由这些分支向`master`分支合并代码。
 
@@ -22,20 +22,32 @@ git-flow会预设两个主分支在版本库中，分别是：
 ## 新功能开发
 
 ### 开始新功能
-```shell
-git flow feature start rss-feed
+```bash
+$ git flow feature start rss-feed
 ```
-输入上述指令，git-flow将会从`develop`签出一个名为`feature/rss-feed`的新分支，并直接转换到该分支。
+输入上述指令，git flow 将会从`develop`签出一个名为`feature/rss-feed`的新分支，并直接转换到该分支。
 
- ![feature start](http://images.herculas.cn/image/blog/statecode/feature1.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/statecode/feature1.png"
+    width="50%"
+    alt="feature start"
+/>
+</div>
 
 ### 完成新功能
 ```shell
-git flow feature finish rss-feed
+$ git flow feature finish rss-feed
 ```
-输入上述指令，git-flow会将该功能分支合并到`develop`分支中，并删除该分支，将工作流转换回`develop`分支中。
+输入上述指令，git flow 会将该功能分支合并到`develop`分支中，并删除该分支，将工作流转换回`develop`分支中。
 
-![feature finish](http://images.herculas.cn/image/blog/statecode/feature2.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/statecode/feature2.png"
+    width="50%"
+    alt="feature finish"
+/>
+</div>
 
 接下来，在`develop`中保存的工作应该按照以下步骤处理：
 1. 进行更广泛地、在开发背景下的全面测试；
@@ -50,58 +62,97 @@ git flow feature finish rss-feed
 3. 它已经被系统地测试过了。
 
 这样，生成新的`release`版本的时机已经成熟。
-```shell
-git flow release start 1.1.5
+```bash
+$ git flow release start 1.1.5
 ```
 
-![release start](http://images.herculas.cn/image/blog/statecode/release1.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/statecode/release1.png"
+    width="50%"
+    alt="release start"
+/>
+</div>
 
-`release`分支通常以版本号命名。当完成`release`后，git-flow会自动的使用版本号在`master`分支标记那些`release`提交。创建`release`后，程序员需要在最终`release`前做最后的准备工作。
+`release`分支通常以版本号命名。当完成`release`后，git flow 会自动的使用版本号在`master`分支标记那些`release`提交。创建`release`后，程序员需要在最终`release`前做最后的准备工作。
 
 ### 完成release
 在准备工作全部完成后，就可以提交本次`release`了。
-```shell
-git flow release finish 1.1.5
+
+```bash
+$ git flow release finish 1.1.5
 ```
+
 上述命令将完成如下的操作：
 1. git-flow拉取远程库，以确保目前的库是最新版本；
 2. 将`release`内容合并到`master`和`develop`分支中。这样，不仅产品代码是最新版本，新的功能开发也将基于最新的代码；
 3. 为了便于识别并作为历史参考，`release`提交将会被标记上该`release`的版本号；
 4. git-flow删除该`release`分支，并转换到`develop`分支。
 
-![release finish](http://images.herculas.cn/image/blog/statecode/release2.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/statecode/release2.png"
+    width="50%"
+    alt="release finish"
+/>
+</div>
 
 ## hotfix与热修复
 
-`release`版本也难免会出现错误，此时需要进行紧急的修复工作。在这种情况下，不管使用`release`流程还是`feature`流程都是不恰当的。因此，git-flow提供了特定的`hotfix`工作流程以满足这种需求。
+`release`版本也难免会出现错误，此时需要进行紧急的修复工作。在这种情况下，不管使用`release`流程还是`feature`流程都是不恰当的。因此，git flow 提供了特定的`hotfix`工作流程以满足这种需求。
 
 ### 创建hotfix
-```shell
-git flow hotfix start missing-link
+```bash
+$ git flow hotfix start missing-link
 ```
 上述命令将创建一个名为`hotfix/missing-link`的修复分支。考虑到修复工作通常是直接针对已发布的代码的，所以该分支直接由`master`分支签出。
 
-![hotfix start](http://images.herculas.cn/image/blog/statecode/hotfix1.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/statecode/hotfix1.png"
+    width="50%"
+    alt="hotfix start"
+/>
+</div>
 
 这就是`hotfix`流程和`release`流程的最显著的区别：`release`分支都是基于`develop`分支的，因为还未完成开发的代码，不存在修复的问题。
 此外，修复错误还会直接影响到项目的版本号。
 
 ### 完成hotfix
-```shell
-git flow hotfix finish missing-link
+
+```bash
+$ git flow hotfix finish missing-link
 ```
+
 完成`hotfix`的过程非常类似于`release`的过程：
 1. 将完成的改动合并到`master`和`develop`分支中；
 2. 在`master`分支中标记此次`hotfix`以供参考；
 3. 删除该`hotfix`分支，然后转换到`develop`分支上。
 
-![hotfix finish](http://images.herculas.cn/image/blog/statecode/hotfix2.png)
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/statecode/hotfix2.png"
+    width="50%"
+    alt="hotfix finish"
+/>
+</div>
 
 ## 回顾
 综合上述几个步骤，在一个系统、庞大的工程中，代码通常按照如下图的方式流动：
 
-![git-model](http://nvie.com/img/git-model@2x.png)
-<center>* [_A successful Git branching model_](http://nvie.com/posts/a-successful-git-branching-model/), Vincent Driessen (__License__: CC BY-SA)</center>
+<div align="center">  
+<img
+    src="http://nvie.com/img/git-model@2x.png"
+    width="80%"
+    alt="git-model"
+/>
+</div>
+
+<div align="center">
+<a href="http://nvie.com/posts/a-successful-git-branching-model/"><em>A successful Git branching model</em></a>,
+Vincent Driessen,
+<strong>License</strong>: CC BY-SA
+</div>
 
 ## 总结
 
