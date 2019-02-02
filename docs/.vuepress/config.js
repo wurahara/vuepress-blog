@@ -17,13 +17,14 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/icons/favicon.ico' }],
     ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css' }],
-    ['link', { rel: "stylesheet", href: "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css" }]
+    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css' }]
   ],
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
-      { text: '时间线', link: '/blog/' },
-      { text: '分类', link: '/group/' },
+      { text: '计算机', link: '/computer-science/' },
+      { text: '历史', link: '/history/' },
+      { text: '随笔', link: '/essay/' }
     ],
     sidebar: 'auto',
     sidebarDepth: 4,
