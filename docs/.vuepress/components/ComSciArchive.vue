@@ -59,7 +59,6 @@ export default {
     this.filteredSites = this.filter(this.siteProperties.pages)
     this.count = this.filteredSites.length
     this.setDisplay()
-    console.log(this.$page)
   },
 
   methods: {
@@ -93,7 +92,7 @@ export default {
         }
       }
       this.displaySites = temp
-      scrollTo(0, 0)
+      // window.scrollTo(0, 0)
     },
 
     pageChange (page) {
@@ -105,8 +104,32 @@ export default {
 </script>
 
 <style scoped>
+
+@media (min-width: 1366px) {
+  .wrapper {
+    width: 50%;
+  }
+}
+
+@media (min-width: 720px) and (max-width: 1366px) {
+  .wrapper {
+    width: 60%;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 720px) {
+  .wrapper {
+    width: 70%;
+  }
+}
+
+@media (max-width: 420px) {
+  .wrapper {
+    width: 90%;
+  }
+}
+
 .wrapper {
-  width: 50%;
   margin: 0 auto;
 }
 
