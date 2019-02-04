@@ -52,16 +52,29 @@ export default {
     }
   },
 
-  created() {
-    this.title = this.$page.title
-    this.keyword = this.$page.frontmatter.keyword
-    this.siteProperties = this.$site
-    this.filteredSites = this.filter(this.siteProperties.pages)
-    this.count = this.filteredSites.length
-    this.setDisplay()
+  mounted () {
+    if (typeof window !== 'undefined') {
+      this.window = window
+    }
+    this.initialize()
+  },
+
+  watch: {
+    '$page.path': function () {
+      this.initialize()
+    }
   },
 
   methods: {
+    initialize () {
+      this.title = this.$page.title
+      this.keyword = this.$page.frontmatter.keyword
+      this.siteProperties = this.$site
+      this.filteredSites = this.filter(this.siteProperties.pages)
+      this.count = this.filteredSites.length
+      this.setDisplay()
+    },
+
     filter(siteList) {
       let filteredSiteList = []
       let regEx = new RegExp(`\/${this.keyword}\/`)
@@ -92,7 +105,7 @@ export default {
         }
       }
       this.displaySites = temp
-      // window.scrollTo(0, 0)
+      this.window.scrollTo(0, 0)
     },
 
     pageChange (page) {

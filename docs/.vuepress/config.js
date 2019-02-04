@@ -20,6 +20,9 @@ module.exports = {
     ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css' }]
   ],
   themeConfig: {
+    serviceWorker: {
+      updatePopup: true
+    },
     nav: [
       { text: '首页', link: '/' },
       { text: '计算机', link: '/computer-science/' },
@@ -29,5 +32,6 @@ module.exports = {
     sidebar: 'auto',
     sidebarDepth: 4,
     activeHeaderLinks: true
-  }
+  },
+  plugins: ['@vuepress/back-to-top']
 }
