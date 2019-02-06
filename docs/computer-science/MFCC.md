@@ -155,26 +155,101 @@ $$ P_i (k) = \frac{1}{N} |[\sum_{n=1}^{N} s_i (n)e^{-\frac{j2\pi kn}{N}}]^2|$$
 
 首先，我们需要规定一个起止频率范围，作为我们频率提取的取值范围，在下文中，我们以 300-8000Hz 为例。那么，对起止频点使用尺度映射公式进行变换，那么 300Hz 就映射到Mel频谱的 401.25Mels 处，8000Hz 映射到 2834.99Mels 处。对于滤波器组含 10 个子滤波器的情况，我们需要 12 个节点。在已有 2 个起止节点的情况下，我们还需要得到剩下的 10 个。这 10 个点来自：
 
-|1|2|3|4|5|6|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|401.25|622.50|843.75|1065.00|1286.25|1507.50|
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+</tr>
+</thead>
 
-|7|8|9|10|11|12|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|1728.74|1949.99|2171.24|2392.49|2613.74|2834.99|
+<tbody>
+<tr>
+<td style="text-align: center;">401.25</td>
+<td style="text-align: center;">622.50</td>
+<td style="text-align: center;">843.75</td>
+<td style="text-align: center;">1065.00</td>
+<td style="text-align: center;">1286.25</td>
+<td style="text-align: center;">1507.50</td>
+</tr>
+</tbody>
+
+<thead>
+<tr>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+<th style="text-align: center;">11</th>
+<th style="text-align: center;">12</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center;">1728.74</td>
+<td style="text-align: center;">1949.99</td>
+<td style="text-align: center;">2171.24</td>
+<td style="text-align: center;">2392.49</td>
+<td style="text-align: center;">2613.74</td>
+<td style="text-align: center;">2834.99</td>
+</tr>
+</tbody>
+</table>
 
 是的，线性分割起止点，就得到了所有的中间节点。
 
 接下来，使用尺度变换的反变换，将Mel尺度下的频点变换回线性刻度，就得到了以下频点：
 
-|1|2|3|4|5|6|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|300|517.33|781.90|1103.97|1496.04|1973.32|
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">1</th>
+<th style="text-align: center;">2</th>
+<th style="text-align: center;">3</th>
+<th style="text-align: center;">4</th>
+<th style="text-align: center;">5</th>
+<th style="text-align: center;">6</th>
+</tr>
+</thead>
 
-|7|8|9|10|11|12|
-|:---:|:---:|:---:|:---:|:---:|:---:|
-|2554.33|3261.62|4122.63|5170.76|6446.70|8000|
+<tbody>
+<tr>
+<td style="text-align: center;">300</td>
+<td style="text-align: center;">517.33</td>
+<td style="text-align: center;">781.90</td>
+<td style="text-align: center;">1103.97</td>
+<td style="text-align: center;">1496.04</td>
+<td style="text-align: center;">1973.32</td>
+</tr>
+</tbody>
 
+<thead>
+<tr>
+<th style="text-align: center;">7</th>
+<th style="text-align: center;">8</th>
+<th style="text-align: center;">9</th>
+<th style="text-align: center;">10</th>
+<th style="text-align: center;">11</th>
+<th style="text-align: center;">12</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td style="text-align: center;">2554.33</td>
+<td style="text-align: center;">3261.62</td>
+<td style="text-align: center;">4122.63</td>
+<td style="text-align: center;">5170.76</td>
+<td style="text-align: center;">6446.70</td>
+<td style="text-align: center;">8000</td>
+</tr>
+</tbody>
+</table>
 
 这些点，就是各子滤波器的起止点。
 

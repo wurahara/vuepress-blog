@@ -26,8 +26,7 @@ module.exports = {
     nav: [
       { text: '首页', link: '/' },
       { text: '计算机', link: '/computer-science/' },
-      { text: '历史', link: '/history/' },
-      { text: '随笔', link: '/essay/' }
+      { text: '历史', link: '/history/' }
     ],
     sidebar: 'auto',
     sidebarDepth: 4,

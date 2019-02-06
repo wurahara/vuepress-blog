@@ -7,7 +7,10 @@
     <br>
 
     <div v-for="item in displaySites">
-      <h3 class="series" v-if="item.frontmatter.series !== undefined">{{ item.frontmatter.series }}</h3>
+
+      <h3 class="series" v-if="item.frontmatter.series !== undefined">
+        {{ item.frontmatter.series }}
+      </h3>
 
       <h2 class="title-without-subtitle" v-if="item.frontmatter.subtitle === undefined">
         <a :href="item.path">{{ item.title }}</a>
@@ -17,12 +20,19 @@
         <a :href="item.path">{{ item.title }}</a>
       </h2>
 
-      <h3
-        class="subtitle"
-        v-if="item.frontmatter.subtitle !== undefined"
-      >{{ item.frontmatter.subtitle }}</h3>
+      <h3 class="subtitle" v-if="item.frontmatter.subtitle !== undefined">
+        {{ item.frontmatter.subtitle }}
+      </h3>
 
-      <div class="body" v-html="item.excerpt"></div>
+      <div class="time-and-tag">
+        <span class="time">
+          {{ item.frontmatter.date | dateParser }}
+        </span>
+      </div>
+
+      <div class="body" v-html="item.excerpt">
+      </div>
+
     </div>
 
     <div class="pagination">
@@ -57,6 +67,13 @@ export default {
       this.window = window
     }
     this.initialize()
+  },
+
+  filters: {
+    dateParser (date) {
+      let dateObject = new Date(date)
+      return `${dateObject.getFullYear()}-${dateObject.getMonth() + 1}-${dateObject.getDate()}`
+    }
   },
 
   watch: {
@@ -106,6 +123,7 @@ export default {
       }
       this.displaySites = temp
       this.window.scrollTo(0, 0)
+      console.log(this.displaySites)
     },
 
     pageChange (page) {
@@ -179,5 +197,14 @@ export default {
   text-align: center;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.time-and-tag {
+  margin-bottom: 0px;
+}
+
+.time {
+  font-weight: 200;
+  color: gray;
 }
 </style>
