@@ -6,7 +6,7 @@ categories: Algorithms
 tags:
   - algorithm
   - sort
-date: '2018-10-16 14:18'
+date: 2018-10-16 14:18:00
 ---
 
 刷越多的LeetCode就越会发现，算法基础掌握的不牢会极大地影响刷题的效果。因此我觉得有必要系统地、全面地整理一下几个比较重点的算法和数据结构知识点。我计划基于普林斯顿的 _[Algorithm 4th edition](https://book.douban.com/subject/10432347/)_ 这本书和 [Coursera 上的配套视频教程](https://www.coursera.org/learn/algorithms-part1/home/welcome)来整理相关的算法。预计将有排序算法、查找和搜索算法、图理论、字符串处理等几个部分。除此之外，面试算法题中还常会涉及到回溯算法和动态规划的问题，也有可能会特别地单独整理。

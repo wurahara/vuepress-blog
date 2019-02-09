@@ -128,7 +128,7 @@ export default {
 
 @media (min-width: 768px) {
   .hero-slot {
-    width: 296px;
+    width: 296px !important;
   }
 
   .card {
@@ -138,7 +138,7 @@ export default {
 
 @media (min-width: 500px) and (max-width: 768px) {
   .hero-slot {
-    width: 296px;
+    width: 296px !important;
   }
 
   .card {
@@ -148,7 +148,7 @@ export default {
 
 @media (max-width: 500px) {
   .hero-slot {
-    width: 296px;
+    width: 296px !important;
   }
   
   .card {

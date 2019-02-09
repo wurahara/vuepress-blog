@@ -1,40 +1,29 @@
 <template>
   <div class="wrapper">
     <br>
-
     <h1>{{ title }}</h1>
-
     <br>
-
     <div v-for="item in displaySites">
-
       <h3 class="series" v-if="item.frontmatter.series !== undefined">
         {{ item.frontmatter.series }}
       </h3>
-
       <h2 class="title-without-subtitle" v-if="item.frontmatter.subtitle === undefined">
         <a :href="item.path">{{ item.title }}</a>
       </h2>
-
       <h2 class="title-with-subtitle" v-if="item.frontmatter.subtitle !== undefined">
         <a :href="item.path">{{ item.title }}</a>
       </h2>
-
       <h3 class="subtitle" v-if="item.frontmatter.subtitle !== undefined">
         {{ item.frontmatter.subtitle }}
       </h3>
-
       <div class="time-and-tag">
         <span class="time">
           {{ item.frontmatter.date | dateParser }}
         </span>
       </div>
-
       <div class="body" v-html="item.excerpt">
       </div>
-
     </div>
-
     <div class="pagination">
       <el-pagination
         layout="prev, pager, next"
@@ -44,7 +33,6 @@
       >
       </el-pagination>
     </div>
-
   </div>
 </template>
 
@@ -123,7 +111,7 @@ export default {
       }
       this.displaySites = temp
       this.window.scrollTo(0, 0)
-      console.log(this.displaySites)
+      // console.log(this.displaySites)
     },
 
     pageChange (page) {

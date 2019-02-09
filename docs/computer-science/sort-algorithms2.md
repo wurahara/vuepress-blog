@@ -6,7 +6,7 @@ categories: Algorithms
 tags:
   - algorithm
   - sort
-date: '2018-10-18 19:50'
+date: 2018-10-18 19:50:00
 ---
 
 上一篇中，我们介绍了几种基本的排序算法，包括选择排序 (Selection Sort)，插入排序 (Insertion Sort) 和希尔排序 (Shell Sort)。在本篇中，我们主要考察归并排序(Merge Sort)和快速排序(Quick Sort)这两种更高级的排序算法，学习这两种排序算法的的实现方法，并分析归排和快排的性能指标。
