@@ -100,7 +100,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .hero-slot {
   margin-top: 30px;
 }

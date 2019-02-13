@@ -60,7 +60,7 @@ export default {
   filters: {
     dateParser (date) {
       let dateObject = new Date(date)
-      return `${dateObject.getFullYear()}-${dateObject.getMonth() + 1}-${dateObject.getDate()}`
+      return `${dateObject.getFullYear()}-${dateObject.getMonth() + 1}-${dateObject.getUTCDate()}`
     }
   },
 

@@ -27,7 +27,8 @@ module.exports = {
       { text: '首页', link: '/' },
       { text: '计算机', link: '/computer-science/' },
       { text: '历史', link: '/history/' },
-      { text: '随笔', link: '/essay/' }
+      { text: '随笔', link: '/essay/' },
+      // { text: '关于', link: '/about/' }
     ],
     sidebar: 'auto',
     sidebarDepth: 4,
