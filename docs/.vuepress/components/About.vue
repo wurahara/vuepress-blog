@@ -16,6 +16,10 @@
       </el-col>
     </el-row>
 
+    <div>
+      <font-awesome-icon icon="weibo" />
+    </div>
+
     <el-row type="flex" class="jumbo">
       <el-col :span="24" class="title">
         <h2>技术特长</h2>
