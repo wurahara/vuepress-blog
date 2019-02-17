@@ -1,7 +1,7 @@
 module.exports = {
   base: '/',
   title: '空与海之诗',
-  description: 'Glass Walls and Waterfalls',
+  description: 'Glass walls and waterfalls, can\'t stop your light from reaching my eyes.',
   markdown: {
     anchor: {
       permalink: true
