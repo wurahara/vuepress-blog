@@ -1,5 +1,5 @@
 ---
-series: 关原会战
+series: 关原之战
 title: 秀吉之死与丰臣家的分裂
 enable html: true
 tags: History
