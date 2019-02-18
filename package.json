@@ -1,6 +1,6 @@
 {
   "name": "vuepress-blog",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "A blog written by vuepress.",
   "scripts": {
     "docs:dev": "vuepress dev docs",
