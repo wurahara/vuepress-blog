@@ -1,10 +1,13 @@
 {
   "name": "vuepress-blog",
-  "version": "1.0.0",
+  "version": "1.1.2",
   "description": "A blog written by vuepress.",
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "predeploy": "./deploy/predeploy.sh",
+    "deploy": "./deploy/deploy.sh",
+    "postdeploy": "./deploy/postdeploy.sh"
   },
   "keywords": [
     "vuepress"
