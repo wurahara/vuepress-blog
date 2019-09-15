@@ -2,37 +2,28 @@ module.exports = {
   base: '/',
   title: '空与海之诗',
   description: 'Glass walls and waterfalls, can\'t stop your light from reaching my eyes.',
-  markdown: {
-    anchor: {
-      permalink: true
-    },
-    lineNumbers: true,
-    toc: {
-      includeLevel: [2, 3, 4]
-    },
-    config: md => {
-      md.use(require('markdown-it-katex'))
-    }
-  },
   head: [
     ['link', { rel: 'icon', href: '/icons/favicon.ico' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css' }],
-    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/2.10.0/github-markdown.min.css' }]
+    ['link', { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css' }],
+    ['link', { rel: 'stylesheet', href: 'https://cdn.jsdelivr.net/github-markdown-css/2.2.1/github-markdown.css' }]
   ],
+
   themeConfig: {
-    serviceWorker: {
-      updatePopup: true
-    },
     nav: [
       { text: '首页', link: '/' },
       { text: '计算机', link: '/computer-science/' },
       { text: '历史', link: '/history/' },
-      { text: '随笔', link: '/essay/' },
-      // { text: '关于', link: '/about/' }
+      { text: '随笔', link: '/essay/' }
     ],
     sidebar: 'auto',
-    sidebarDepth: 4,
-    activeHeaderLinks: true
+    sidebarDepth: 2
   },
-  plugins: ['@vuepress/back-to-top']
+
+  markdown: {
+    lineNumbers: true,
+    extendMarkdown(md) {
+      md.set({breaks: true})
+      md.use(require('markdown-it-katex'), {"throwOnError" : false, "errorColor" : " #cc0000"})
+    }
+  }
 }

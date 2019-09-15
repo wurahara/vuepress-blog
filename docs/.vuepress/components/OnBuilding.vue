@@ -9,7 +9,7 @@
 
     <el-row type="flex" justify="center">
       <el-col :span="24" align="center">
-        <h1 class="title">施工中    敬请期待</h1>
+        <h1 class="title">长期施工中    请不要期待</h1>
       </el-col>
     </el-row>
 
