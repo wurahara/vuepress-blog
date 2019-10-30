@@ -6,8 +6,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "predeploy": "./deploy/predeploy.sh",
-    "deploy": "./deploy/deploy.sh",
-    "postdeploy": "./deploy/postdeploy.sh"
+    "deploy": "./deploy/deploy.sh"
   },
   "keywords": [
     "vuepress"

@@ -6,9 +6,8 @@ set -e
 echo "\033[44;30m PRE \033[0m Generating the distribution files..." 
 
 # delete the old version of distribution files
-rm -rf docs/.vuepress/dist
+sudo rm -rf docs/.vuepress/dist
 
 # generate distribution files
-npm run docs:build
-
-
+sudo npm run docs:build
+sudo chmod 777 docs/.vuepress/dist

@@ -18,3 +18,5 @@ git commit -m 'vuepress automatically deploy script'
 
 # post to github
 git push -f git@github.com:wurahara/wurahara.github.io.git master
+
+echo "\033[42;30m POST \033[0m Work finished.\n"
