@@ -383,15 +383,13 @@ private static void sort(Comparable[] a, int lo, int hi) {
 
 基于本篇和上一篇的介绍，我们现在可以对各排序算法的时间和空间复杂度进行大致的比较。
 
-| 算法      | 是否稳定    |  是否原地 | 最差时间复杂度 | 平均时间复杂度 | 最好时间复杂度 |空间复杂度|
-|:---------:|:--------:|:-----:|:--:|:--:|:--:|:--:|
-|选择排序|否|是|$\frac{N^2}{2}$|$\frac{N^2}{2}$|$\frac{N^2}{2}$|1|
-|插入排序|是|是|$\frac{N^2}{2}$|$\frac{N^2}{4}$|$N$|1|
-|希尔排序|否|是|?|?|$N \lg N$|1|
-|归并排序|是|否|$N \lg N$|$N \lg N$|$N \lg N$|$N$|
-|快速排序|否|是|$\frac{N^2}{2}$|$2N \lg N$|$N \lg N$|$\lg N$|
-|三向切分快速排序|否|是|$\frac{N^2}{2}$|$2N \lg N$|$N$|$\lg N$|
-|堆排序|否|是|$2N \lg N$|$2N \lg N$|$N \lg N$|1|
+<div align="center">  
+<img
+    src="http://images.herculas.cn/image/blog/algorithms/sort2/compare.png"
+    width="100%"
+    alt="算法比较"
+/>
+</div>
 
 可见，快速排序是最快的通用排序算法。
 
