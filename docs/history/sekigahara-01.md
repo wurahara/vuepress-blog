@@ -2,7 +2,7 @@
 series: 关原之战
 title: 秀吉之死与丰臣家的分裂
 enable html: true
-tags: History
+categories: History
 date: 2019-02-01 17:26:41
 ---
 

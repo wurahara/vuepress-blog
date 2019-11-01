@@ -1,5 +1,6 @@
 ---
 title: HTTP的状态码
+categories: Others
 tags: HTTP
 date: 2018-04-02 16:09:28
 ---

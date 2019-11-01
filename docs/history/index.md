@@ -1,5 +1,7 @@
 ---
-layout: Archive
 title: 地摊历史学
-keyword: history
+keyword: History
+sidebar: false
 ---
+
+<Archive />

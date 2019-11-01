@@ -1,5 +1,6 @@
 ---
 title: 关系型数据库设计及其规范化
+categories: Others
 tags: database
 date: 2018-05-26 18:28:50
 ---

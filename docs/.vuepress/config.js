@@ -11,7 +11,13 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '首页', link: '/' },
-      { text: '计算机', link: '/computer-science/' },
+      {
+        text: '计算机',
+        items: [
+          {text: '算法', link: '/computer-science/algorithms/'},
+          {text: '杂谈', link: '/computer-science/others/'}
+        ]
+      },
       { text: '历史', link: '/history/' },
       { text: '随笔', link: '/essay/' }
     ],

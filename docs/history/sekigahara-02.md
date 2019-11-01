@@ -2,7 +2,7 @@
 series: 关原之战
 title: 德川家康的抬头
 enable html: true
-tags: History
+categories: History
 date: 2019-02-17 16:42:00
 ---
 

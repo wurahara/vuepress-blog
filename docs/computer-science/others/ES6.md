@@ -1,7 +1,10 @@
 ---
 title: ES2015新特性概述
 date: 2017-08-16 15:56:48
-tags: [JavaScript, ECMAScript6]
+categories: Others
+tags: 
+  - JavaScript
+  - ECMAScript6
 ---
 本文部分翻译自[Babel Learn ES2015](https://babeljs.io/learn-es2015/ "Source")，简单罗列了ES2015的一些新特性和新功能。
 

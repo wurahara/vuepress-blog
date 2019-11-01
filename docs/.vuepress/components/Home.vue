@@ -2,7 +2,7 @@
   <div>
     <el-row type="flex" justify="center">
       <el-col :span="24" class="hero-slot">
-        <img src="pictures/hero.png">
+        <img src="pictures/photo.jpg" width="150">
       </el-col>
     </el-row>
 
@@ -87,7 +87,7 @@
       </el-col>
 
       <el-footer class="footer">
-        GPL-3.0 Licensed | Copyright © 2017-2019 <a href="https://github.com/wurahara" target="_blank">wurahara</a>
+        Powered by <a href="https://vuepress.vuejs.org/" target="_blank">VuePress</a> | Copyright © 2017-2019 <a href="https://github.com/wurahara" target="_blank">wurahara</a>
       </el-footer>
 
     </el-row>
@@ -102,6 +102,7 @@ export default {
 
 <style scoped>
 .hero-slot {
+  text-align: center;
   margin-top: 30px;
 }
 

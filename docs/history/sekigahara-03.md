@@ -2,7 +2,7 @@
 series: 关原之战
 title: 讨伐会津
 enable html: true
-tags: History
+categories: History
 date: 2019-04-29 20:13:00
 ---
 

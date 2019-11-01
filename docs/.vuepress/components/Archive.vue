@@ -81,10 +81,14 @@ export default {
     },
 
     filter(siteList) {
+
+      console.log(siteList)
+
       let filteredSiteList = []
-      let regEx = new RegExp(`\/${this.keyword}\/`)
       siteList.forEach(element => {
-        if (regEx.test(element.path) && element.path !== `/${this.keyword}/`) {
+        // console.log(this.keyword)
+        // console.log(element.frontmatter.categories)
+        if (this.keyword === element.frontmatter.categories) {
           filteredSiteList.push(element)
         }
       })
@@ -111,7 +115,6 @@ export default {
       }
       this.displaySites = temp
       this.window.scrollTo(0, 0)
-      // console.log(this.displaySites)
     },
 
     pageChange (page) {
@@ -126,25 +129,25 @@ export default {
 
 @media (min-width: 1366px) {
   .wrapper {
-    width: 50%;
+    width: 100%;
   }
 }
 
 @media (min-width: 720px) and (max-width: 1366px) {
   .wrapper {
-    width: 60%;
+    width: 80%;
   }
 }
 
 @media (min-width: 420px) and (max-width: 720px) {
   .wrapper {
-    width: 70%;
+    width: 80%;
   }
 }
 
 @media (max-width: 420px) {
   .wrapper {
-    width: 90%;
+    width: 100%;
   }
 }
 

@@ -1,5 +1,6 @@
 ---
 title: 基于Vue.js的前端工程的容器化与自动构建
+categories: Others
 tags:
   - JavaScript
   - Vue.js
