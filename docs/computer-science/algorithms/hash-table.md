@@ -1,5 +1,5 @@
 ---
-series: 算法与数据结构学习笔记
+series: 查找算法
 title: 散列表
 enable html: true
 categories: Algorithms

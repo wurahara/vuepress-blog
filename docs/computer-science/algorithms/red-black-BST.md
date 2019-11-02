@@ -1,5 +1,5 @@
 ---
-series: 算法与数据结构学习笔记
+series: 查找算法
 title: 平衡搜索树：2-3 搜索树和红黑树
 enable html: true
 categories: Algorithms

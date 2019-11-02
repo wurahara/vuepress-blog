@@ -1,5 +1,5 @@
 ---
-series: 算法与数据结构学习笔记
+series: 排序算法
 title: 高级排序算法：归并排序和快速排序
 enable html: true
 categories: Algorithms

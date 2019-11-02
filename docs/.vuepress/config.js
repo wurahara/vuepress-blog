@@ -14,7 +14,8 @@ module.exports = {
       {
         text: '计算机',
         items: [
-          {text: '算法', link: '/computer-science/algorithms/'},
+          {text: '数据结构与算法', link: '/computer-science/algorithms/'},
+          {text: '计算机科学基础', link: '/computer-science/basic/'},
           {text: '杂谈', link: '/computer-science/others/'}
         ]
       },

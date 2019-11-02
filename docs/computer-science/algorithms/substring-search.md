@@ -1,5 +1,5 @@
 ---
-series: 算法与数据结构学习笔记
+series: 字符串处理
 title: 子串搜索：KMP 算法与确定有限状态机
 enable html: true
 categories: Algorithms

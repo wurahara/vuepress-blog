@@ -1,5 +1,5 @@
 ---
-series: 算法与数据结构学习笔记
+series: 图论
 title: 无向图：DFS 和 BFS 实现
 enable html: true
 categories: Algorithms

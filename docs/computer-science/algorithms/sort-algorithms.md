@@ -1,5 +1,5 @@
 ---
-series: 算法与数据结构学习笔记
+series: 排序算法
 title: 初级排序算法：选择排序，插入排序和希尔排序
 enable html: true
 categories: Algorithms

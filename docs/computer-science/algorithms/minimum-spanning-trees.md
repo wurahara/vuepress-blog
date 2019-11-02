@@ -1,5 +1,5 @@
 ---
-series: 算法与数据结构学习笔记
+series: 图论
 title: 最小生成树
 enable html: true
 categories: Algorithms

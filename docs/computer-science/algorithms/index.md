@@ -1,5 +1,5 @@
 ---
-title: 算法与数据结构
+title: 数据结构与算法
 keyword: Algorithms
 sidebar: false
 ---

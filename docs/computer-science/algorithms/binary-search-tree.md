@@ -1,5 +1,5 @@
 ---
-series: 算法与数据结构学习笔记
+series: 查找算法
 title: 二叉搜索树
 enable html: true
 categories: Algorithms

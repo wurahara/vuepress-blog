@@ -21,7 +21,7 @@
     <el-row>
 
       <el-col :xs="24" :sm="8">
-        <a href="/computer-science/">
+        <a href="/computer-science/basic/">
           <el-card :body-style="{ padding: '0px' }" class="card">
             <div class="card-icon card-icon-green">
               <svg width="90" height="70" viewBox="0 0 127 100" xmlns="http://www.w3.org/2000/svg">

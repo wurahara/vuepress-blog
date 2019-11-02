@@ -86,8 +86,6 @@ export default {
 
       let filteredSiteList = []
       siteList.forEach(element => {
-        // console.log(this.keyword)
-        // console.log(element.frontmatter.categories)
         if (this.keyword === element.frontmatter.categories) {
           filteredSiteList.push(element)
         }
