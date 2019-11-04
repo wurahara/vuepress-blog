@@ -113,7 +113,7 @@ private void put(Node root, Key key, Value val) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search2/tree%20shape.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search2/tree%20shape.png"
     width="80%"
     alt="Tree shape"
 />
@@ -143,7 +143,7 @@ private void put(Node root, Key key, Value val) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search2/minimum%20and%20maximum.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search2/minimum%20and%20maximum.png"
     width="50%"
     alt="Minimum and maximum"
 />
@@ -168,7 +168,7 @@ private Node min(Node root) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search2/floor%20and%20ceiling.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search2/floor%20and%20ceiling.png"
     width="50%"
     alt="Floor and ceiling"
 />
@@ -297,7 +297,7 @@ private void inorder(Node root, Queue<Key> queue) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search2/delete%20the%20minimum.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search2/delete%20the%20minimum.png"
     width="40%"
     alt="Delete the minimum"
 />
@@ -332,7 +332,7 @@ private Node deleteMin(Node root) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%201.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%201.png"
     width="90%"
     alt="Case 1"
 />
@@ -342,7 +342,7 @@ private Node deleteMin(Node root) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%202.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%202.png"
     width="90%"
     alt="Case 2"
 />
@@ -356,7 +356,7 @@ private Node deleteMin(Node root) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%203.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search2/hibbard%20deletion%203.png"
     width="70%"
     alt="Case 3"
 />

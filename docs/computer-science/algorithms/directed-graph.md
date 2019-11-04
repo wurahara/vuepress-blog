@@ -46,7 +46,7 @@ public class Digraph {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph2/directed%20graph.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph2/directed%20graph.png"
     width="80%"
     alt="有向图和邻接表"
 />
@@ -280,7 +280,7 @@ public class DirectedCycle {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph2/SCC.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph2/SCC.png"
     width="45%"
     alt="强连通分量"
 />

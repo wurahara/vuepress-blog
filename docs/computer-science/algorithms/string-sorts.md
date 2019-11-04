@@ -42,7 +42,7 @@ Java 还提供了和 StringBuilder 类相似的 StringBuffer 类，该类的特�
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%20counting.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%20counting.png"
     width="35%"
     alt="适用于键索引计数法的典型情况"
 />
@@ -56,7 +56,7 @@ Java 还提供了和 StringBuilder 类相似的 StringBuffer 类，该类的特�
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%201.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%201.png"
     width="35%"
     alt="键索引1"
 />
@@ -68,7 +68,7 @@ Java 还提供了和 StringBuilder 类相似的 StringBuffer 类，该类的特�
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%202.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%202.png"
     width="35%"
     alt="键索引2"
 />
@@ -80,7 +80,7 @@ Java 还提供了和 StringBuilder 类相似的 StringBuffer 类，该类的特�
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%203.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%203.png"
     width="40%"
     alt="键索引3"
 />
@@ -92,7 +92,7 @@ Java 还提供了和 StringBuilder 类相似的 StringBuffer 类，该类的特�
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%204.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string1/key%20indexed%204.png"
     width="40%"
     alt="键索引4"
 />
@@ -134,7 +134,7 @@ for (int i = 0; i < N; i++)
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string1/LSD.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string1/LSD.png"
     width="75%"
     alt="LSD"
 />
@@ -177,7 +177,7 @@ LSD 只适用于长度相同的一组字符串，而我们下面要介绍的 MSD
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string1/MSD.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string1/MSD.png"
     width="90%"
     alt="MSD"
 />
@@ -265,7 +265,7 @@ public class MSD {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string1/3-way.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string1/3-way.png"
     width="75%"
     alt="三向字符串快排"
 />

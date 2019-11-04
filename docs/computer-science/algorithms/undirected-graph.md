@@ -140,7 +140,7 @@ public static int numberOfSelfLoops(Graph G) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph1/adjacency%20list.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph1/adjacency%20list.png"
     width="45%"
     alt="邻接表"
 />
@@ -201,7 +201,7 @@ public class Graph {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph1/dfs.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph1/dfs.png"
     width="40%"
     alt="深度优先搜索"
 />
@@ -269,7 +269,7 @@ public class DepthFirstPaths {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph1/bfs.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph1/bfs.png"
     width="50%"
     alt="BFS"
 />

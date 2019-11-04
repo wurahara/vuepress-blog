@@ -51,7 +51,7 @@ public class StringST<Value> {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string2/tries.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string2/tries.png"
     width="75%"
     alt="前缀树"
 />
@@ -66,7 +66,7 @@ public class StringST<Value> {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string2/trie%20search.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string2/trie%20search.png"
     width="75%"
     alt="键搜索"
 />
@@ -81,7 +81,7 @@ public class StringST<Value> {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string2/trie%20insertion.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string2/trie%20insertion.png"
     width="75%"
     alt="键插入"
 />
@@ -93,7 +93,7 @@ public class StringST<Value> {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string2/trie%20deletion.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string2/trie%20deletion.png"
     width="50%"
     alt="键删除"
 />
@@ -189,11 +189,11 @@ public class TrieST<Value> {
 想要遍历前缀树中的所有键，需要维护一个队列以保存所有字符串键。我们需要进行以下操作：
 
 - 对前缀树进行中序遍历，将各键加入到队列中；
-- 维护从根结点到各椰子结点的各路径的字符序列。
+- 维护从根结点到各叶子结点的各路径的字符序列。
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string2/ordered%20iteration.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string2/ordered%20iteration.png"
     width="60%"
     alt="键遍历"
 />
@@ -225,7 +225,7 @@ private void collect(Node x, String prefix, Queue<String> q) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string2/wildcard%20match.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string2/wildcard%20match.png"
     width="90%"
     alt="通配符匹配"
 />
@@ -261,7 +261,7 @@ public void collect(Node x, String pre, String pat, Queue<String> q) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string2/longest%20prefix.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string2/longest%20prefix.png"
     width="90%"
     alt="最长前缀"
 />
@@ -305,7 +305,7 @@ private int search(Node x, String s, int d, int length) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string2/TST.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string2/TST.png"
     width="90%"
     alt="三向前缀树"
 />
@@ -323,7 +323,7 @@ private int search(Node x, String s, int d, int length) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/string2/tst%20search.png"
+    src="https://images.herculas.cn/image/blog/algorithms/string2/tst%20search.png"
     width="45%"
     alt="TST键搜索"
 />

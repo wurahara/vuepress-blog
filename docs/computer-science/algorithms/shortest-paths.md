@@ -89,7 +89,7 @@ public class EdgeWeightedDigraph {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/edge-weighted%20digraph.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/edge-weighted%20digraph.png"
     width="50%"
     alt="加权有向图的表示"
 />
@@ -113,7 +113,7 @@ public class SP {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/Shortest-Paths%20data%20structures.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/Shortest-Paths%20data%20structures.png"
     width="60%"
     alt="最短路径类的数据结构"
 />
@@ -145,7 +145,7 @@ public Iterable<DirectedEdge> pathTo(int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/edge%20relaxation.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/edge%20relaxation.png"
     width="90%"
     alt="边失效和边松弛"
 />
@@ -171,7 +171,7 @@ private void relax(DirectedEdge e) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/vertex%20relaxation.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/vertex%20relaxation.png"
     width="40%"
     alt="顶点的松弛"
 />
@@ -222,7 +222,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%201.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%201.png"
     width="40%"
     alt="轨迹 1"
 />
@@ -232,7 +232,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%202.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%202.png"
     width="60%"
     alt="轨迹 2"
 />
@@ -242,7 +242,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%203.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%203.png"
     width="60%"
     alt="轨迹 3"
 />
@@ -252,7 +252,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%204.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%204.png"
     width="60%"
     alt="轨迹 4"
 />
@@ -262,7 +262,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%209.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%209.png"
     width="60%"
     alt="轨迹 5"
 />
@@ -272,7 +272,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%205.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%205.png"
     width="60%"
     alt="轨迹 6"
 />
@@ -282,7 +282,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%206.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%206.png"
     width="60%"
     alt="轨迹 7"
 />
@@ -292,7 +292,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%207.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%207.png"
     width="60%"
     alt="轨迹 8"
 />
@@ -302,7 +302,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%208.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%208.png"
     width="60%"
     alt="轨迹 9"
 />
@@ -312,7 +312,7 @@ private void relax(EdgeWeightedDigraph G, int v) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%2010.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/D%20trace%2010.png"
     width="60%"
     alt="轨迹 10"
 />
@@ -403,7 +403,7 @@ public class AcyclicSP {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/parallel%20job%20scheduling.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/parallel%20job%20scheduling.png"
     width="70%"
     alt="并行任务调度"
 />
@@ -420,7 +420,7 @@ public class AcyclicSP {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/Edge-weighted%20DAG%20representation%20of%20job%20scheduling.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/Edge-weighted%20DAG%20representation%20of%20job%20scheduling.png"
     width="70%"
     alt="任务调度问题的无环加权有向图表示"
 />
@@ -467,7 +467,7 @@ public class CPM {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph4/negative%20weights.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph4/negative%20weights.png"
     width="60%"
     alt="负权重问题"
 />

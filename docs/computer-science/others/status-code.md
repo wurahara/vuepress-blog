@@ -94,7 +94,7 @@ HTTP/1.1 以前的很多浏览器不能正确理解 303 状态。虽然 RFC 的�
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/statecode/401.png"
+    src="https://images.herculas.cn/image/blog/statecode/401.png"
     width="70%"
     alt="401响应"
 />

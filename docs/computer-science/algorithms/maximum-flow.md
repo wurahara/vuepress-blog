@@ -28,7 +28,7 @@ date: 2018-11-16 16:00:29
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph5/mincut.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph5/mincut.png"
     width="70%"
     alt="最小切分问题"
 />
@@ -44,7 +44,7 @@ date: 2018-11-16 16:00:29
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph5/maxflow.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph5/maxflow.png"
     width="70%"
     alt="最大流问题"
 />
@@ -62,7 +62,7 @@ date: 2018-11-16 16:00:29
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph5/augmenting%20path.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph5/augmenting%20path.png"
     width="70%"
     alt="增广路径"
 />
@@ -103,7 +103,7 @@ date: 2018-11-16 16:00:29
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph5/flow%20and%20capacity.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph5/flow%20and%20capacity.png"
     width="70%"
     alt="容量和流量"
 />
@@ -118,7 +118,7 @@ date: 2018-11-16 16:00:29
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph5/residual%20network.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph5/residual%20network.png"
     width="80%"
     alt="剩余网络"
 />
@@ -222,7 +222,7 @@ public class FlowNetwork {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/graph5/flow%20network.png"
+    src="https://images.herculas.cn/image/blog/algorithms/graph5/flow%20network.png"
     width="90%"
     alt="Flow Network"
 />

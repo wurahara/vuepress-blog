@@ -45,7 +45,7 @@ private static void merge(Comparable[] a, Comparable[] aux, int lo, int mid, int
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort2/mergesort1.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort2/mergesort1.png"
     width="60%"
     alt="自顶向下的归并排序"
 />
@@ -146,7 +146,7 @@ private static void sort(Comparable[] a, Comparable[] aux, int lo, int hi) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort2/mergesort2.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort2/mergesort2.png"
     width="60%"
     alt="自底向上的归并排序"
 />
@@ -179,7 +179,7 @@ public class MergeBU {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort2/complexity1.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort2/complexity1.png"
     width="80%"
     alt="N = 3示例图"
 />
@@ -189,7 +189,7 @@ public class MergeBU {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort2/complexity2.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort2/complexity2.png"
     width="90%"
     alt="h示例图"
 />
@@ -230,7 +230,7 @@ $$
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort2/patition.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort2/patition.png"
     width="90%"
     alt="数组切分"
 />
@@ -261,7 +261,7 @@ private static int partition(Comparable[] a, int lo, int hi) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort2/quicksort.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort2/quicksort.png"
     width="60%"
     alt="快速排序"
 />
@@ -336,7 +336,7 @@ private static void sort(Comparable[] a, int lo, int hi) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort2/three%20way%20patitioning.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort2/three%20way%20patitioning.png"
     width="45%"
     alt="三向切分"
 />
@@ -367,7 +367,7 @@ private static void sort(Comparable[] a, int lo, int hi) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort2/three%20way%20pointers.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort2/three%20way%20pointers.png"
     width="45%"
     alt="三向指针"
 />
@@ -385,7 +385,7 @@ private static void sort(Comparable[] a, int lo, int hi) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort2/compare.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort2/compare.png"
     width="100%"
     alt="算法比较"
 />

@@ -175,7 +175,7 @@ private int hash(Key key) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search4/bins%20and%20balls.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search4/bins%20and%20balls.png"
     width="70%"
     alt="箱球问题"
 />
@@ -199,7 +199,7 @@ private int hash(Key key) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search4/separate%20chaining.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search4/separate%20chaining.png"
     width="50%"
     alt="基于拉链法的散列表"
 />
@@ -290,7 +290,7 @@ public class LinearProbingHashST<Key, Value> {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search4/knuth%20parking.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search4/knuth%20parking.png"
     width="80%"
     alt="Knuth停车问题"
 />

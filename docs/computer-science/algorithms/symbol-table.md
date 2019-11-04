@@ -78,7 +78,7 @@ public class ST<Key, Value> {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search1/linkedlist.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search1/linkedlist.png"
     width="90%"
     alt="无序链表轨迹"
 />
@@ -140,7 +140,7 @@ public class SequentialSearchST<Key, Value> {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/search1/binarysearch.png"
+    src="https://images.herculas.cn/image/blog/algorithms/search1/binarysearch.png"
     width="90%"
     alt="有序数组实现轨迹"
 />

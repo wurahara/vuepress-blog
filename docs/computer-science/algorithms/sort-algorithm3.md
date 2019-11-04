@@ -87,7 +87,7 @@ public class UnorderedMaxPQ<Key extends Comparable<Key>> {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort3/array%20implementation.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort3/array%20implementation.png"
     width="90%"
     alt="数据结构"
 />
@@ -144,7 +144,7 @@ private void swim(int k) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort3/promotion.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort3/promotion.png"
     width="50%"
     alt="上浮"
 />
@@ -170,7 +170,7 @@ private void sink(int k) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort3/demotion.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort3/demotion.png"
     width="45%"
     alt="下沉"
 />
@@ -237,7 +237,7 @@ public static void sort(Comparable[] a) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort3/construction.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort3/construction.png"
     width="70%"
     alt="堆的构造"
 />
@@ -249,7 +249,7 @@ public static void sort(Comparable[] a) {
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/algorithms/sort3/sortdown.png"
+    src="https://images.herculas.cn/image/blog/algorithms/sort3/sortdown.png"
     width="70%"
     alt="堆的下沉排序"
 />

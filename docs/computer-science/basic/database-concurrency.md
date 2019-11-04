@@ -25,19 +25,19 @@ date: 2019-11-01 20:00:01
 
 数据库事务必须满足下面的几个特性：
 
-1. 原子性 (Atomicity)
+1. **原子性 (Atomicity)**
 
    事务被视为不可分割的最小单元，其中的所有操作要么全部成功，要么全部失败回滚。事务的回滚可以依靠回滚日志实现。回滚日志记载着事务中执行的修改操作，在回滚时反向执行修改操作即可。
 
-2. 一致性 (Consistency)
+2. **一致性 (Consistency)**
 
    数据库在执行隔离事务（即没有其他事务并发执行）时保持数据库的一致状态。在一致性状态下，所有事务对一个数据的观察是相同的。
 
-3. 隔离性 (Isolation)
+3. **隔离性 (Isolation)**
 
    一个事务在其所做的修改的最终提交前，该事务的数据修改对其他事务不可见。事务间的隔离可以通过并发控制实现，常见的数据库并发控制手段有封锁、时间戳操作和多版本并发控制。
 
-4. 持久性 (Durability)
+4. **持久性 (Durability)**
 
    一旦事务提交，其所做的所有修改将持久化在数据库中。即使数据库系统崩溃，数据也不会丢失。事务数据的持久化主要通过重做日志 (Redo Log) 实现。
 
@@ -50,7 +50,7 @@ ACID 特性间有下述关系：
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/basic/database/concurrency/acid.png"
+    src="https://images.herculas.cn/image/blog/basic/database/concurrency/acid.png"
     width="60%"
     alt="ACID特性"
 />
@@ -60,19 +60,19 @@ ACID 特性间有下述关系：
 
 根据事务间的隔离程度，按级别从若到强，可以将其分为以下几种情况：
 
-1. 未提交读 (Read Uncommitted)
+1. **未提交读 (Read Uncommitted)**
 
    允许读取未提交的事务的修改。最低的隔离级别。
 
-2. 已提交读 (Read Committed)
+2. **已提交读 (Read Committed)**
 
    事务只能读取被提交的数据修改。但不要求可重复读。
 
-3. 可重复读 (Repeatable Read)
+3. **可重复读 (Repeatable Read)**
 
    只允许读取被提交的数据修改，且在一个事务两次读取同一数据期间，其他事务不能修改该数据。这保证同一事务多次读取相同数据得到的结果相同。
 
-4. 可串行化 (Serializable)
+4. **可串行化 (Serializable)**
 
    保证可串行化调度，是事务的最高隔离级别。通过强制事务排序使事务之间不可能发生冲突。通常，可串行化调度会在每条读取数据上加上共享锁，即读锁。然而，在可串行化级别上可能会产生大量超时现象和锁竞争。
 
@@ -82,49 +82,49 @@ ACID 特性间有下述关系：
 
 ### 并发一致性问题
 
-1. 更新丢失 (Lost Update)
+1. **更新丢失 (Lost Update)**
 
    若事务 T1 和事务 T2 都试图修改同一数据，事务 T1 先修改，事务 T2 后修改，那么 T2 会覆盖 T1 的修改，导致 T1 的修改丢失。
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/basic/database/concurrency/lostupdate.png"
+    src="https://images.herculas.cn/image/blog/basic/database/concurrency/lostupdate.png"
     width="45%"
     alt="更新丢失"
 />
 </div>
 
-2. 脏读 (Dirty Reads)
+2. **脏读 (Dirty Reads)**
 
    一个事务正在修改一条数据，那么在该事务完成并提交前，该数据就处于不一致状态。若此时另一事务读取该数据，并据此做了进一步处理，就会产生错误的数据依赖关系。该现象被成为脏读。
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/basic/database/concurrency/dirtyread.png"
+    src="https://images.herculas.cn/image/blog/basic/database/concurrency/dirtyread.png"
     width="65%"
     alt="更新丢失"
 />
 </div>
 
-3. 不可重复读 (Non-repeatable Reads)
+3. **不可重复读 (Non-repeatable Reads)**
 
    一个事务在读取某些数据后的某个时间再次读取这些数据，却发现读取的数据已经发生了改变，或已经被删除了。该现象被称为不可重复读。
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/basic/database/concurrency/unrepeatedread.png"
+    src="https://images.herculas.cn/image/blog/basic/database/concurrency/unrepeatedread.png"
     width="65%"
     alt="更新丢失"
 />
 </div>
 
-4. 幻影读 (Phantom Reads)
+4. **幻影读 (Phantom Reads)**
 
    一个事务在按相同的查询条件重新读取之前检索过的数据集合，却发现其他事务插入了满足查询条件的新数据，该现象被成为幻影读。
 
 <div align="center">  
 <img
-    src="http://images.herculas.cn/image/blog/basic/database/concurrency/phantomread.png"
+    src="https://images.herculas.cn/image/blog/basic/database/concurrency/phantomread.png"
     width="55%"
     alt="更新丢失"
 />
@@ -149,7 +149,7 @@ ACID 特性间有下述关系：
 
 ### 锁的类型
 
-1. 读写锁 (Read/Write Lock)
+1. **读写锁 (Read/Write Lock)**
 
    读写锁又称为共享(Share)/排他(Exclusive)锁。关于读写锁，有以下规定：
 
@@ -157,7 +157,7 @@ ACID 特性间有下述关系：
 
    若一个事务对数据 A 加了排他锁，则该事务可以读取或修改 A。在此期间，其他事务不能对 A 添加任何类型的锁。
 
-2. 意向锁 (Intension Lock)
+2. **意向锁 (Intension Lock)**
 
    试想下述情况：在支持行级锁和表级锁的情况下，事务 T 若想要对表 A 添加排他锁，就需要先检测是否有其他事务对表 A 或表 A 中的某一行数据加了锁。这就需要检测表 A 中的每一行，会消耗大量的时间和资源。
 
@@ -182,21 +182,21 @@ ACID 特性间有下述关系：
 
 Next-key Locks 是 MySQL 数据库 InnoDB 存储引擎的一种锁实现。InnoDB 存储引擎在已提交读和可重复读隔离级别上的并发一致性由多版本并发控制机制解决。但多版本并发控制无法解决幻影读问题，无法实现可串行化调度。Next-key Locks就是为了解决幻影读问题而被设计出来的。Next-key Locks 机制分为以下几个部分：
 
-1. Record Locks
+1. **Record Locks**
 
    记录锁用于锁定一个记录上的索引，而非记录本身。若表未设置索引，InnoDB 会自动在主键上创建隐藏的聚簇索引，并利用该索引建立记录锁。
 
-2. Gap Locks
+2. **Gap Locks**
 
    间隙锁锁定索引之间的间隔，但不包含索引本身值。例如，当一个事务执行下面的 SQL 语句时：
 
    ```sql
-   SELECT c FROM t WHERE c BETWEEN 10 and 20 FOR UPDATE;
+   SELECT c FROM t WHERE c BETWEEN 10 AND 20 FOR UPDATE;
    ```
 
    其他事务无法在`t.c`中插入值为 15 的记录。
 
-3. Next-key Locks
+3. **Next-key Locks**
 
    结合记录锁和间隙锁，不仅可以锁定一个记录上的索引，也能锁定索引的间隙。例如，假若一个索引包含下述值：
 
@@ -223,21 +223,21 @@ Next-key Locks 是 MySQL 数据库 InnoDB 存储引擎的一种锁实现。InnoD
 
 MVCC 依赖数据和事务的版本号进行并发控制和事务隔离，对于数据库系统，有以下两种重要的版本号：
 
-1. 系统版本号
+1. **系统版本号**
 
    系统版本号是一个递增的数字。每当数据库系统开始一个新的事务，系统版本号就加一。
 
-2. 事务版本号
+2. **事务版本号**
 
    事务版本号唯一标记一个事务，是该事务开始时的系统版本号。
 
 对于每条数据记录，数据库系统都会在数据行中保存两个隐藏的列，用于存储两个和数据有关的版本号：
 
-1. 创建版本号
+1. **创建版本号**
 
    创建版本号指创建该数据行的快照时的系统版本号。
 
-2. 删除版本号
+2. **删除版本号**
 
    删除版本号指删除该数据行的快照时的系统版本号。若一个快照的删除版本号大于当前的事务版本号，表示该快照在该事务中有效，否则代表该快照在当前事务开始之前已被删除。
 
@@ -247,30 +247,30 @@ MVCC 依赖数据和事务的版本号进行并发控制和事务隔离，对于
 
 当数据库开始一个新的事务时，该事务的版本号必然大于当前所有数据行快照的创建版本号。
 
-1. SELECT
+1. **SELECT**
 
    多个事务必须读取数据行的同一快照，且该快照是该数据行离当前时间最近的有效快照。把未对数据行进行修改的事务记为 T，T 所读取的数据行快照的创建版本号必须小于 T 的事务版本号，因为若非如此则代表该数据行快照是其他事务的最新修改，T 没有读取该行的权限。
 
    此外，该行的删除版本号必须大于 T 的事务版本号，否则表示该行在 T 新建时已被删除，T 也没有读取该行的权限。
 
-2. INSERT
+2. **INSERT**
 
    将当前系统版本号作为数据行快照的创建版本号。
 
-3. DELETE
+3. **DELETE**
 
    将当前系统版本号作为数据行快照的删除版本号。
 
-4. UPDATE
+4. **UPDATE**
 
    将当前系统版本号作为数据行上一快照的删除版本号和新快照的创建版本号，即先进行删除操作，再进行插入操作。
 
 ### 快照读和当前读
 
-1. 快照读
+1. **快照读**
 
    使用 MVCC 读取的都是数据行快照中的数据，这样可以减少封锁带来的系统开销。
 
-2. 当前读
+2. **当前读**
 
    直接读取数据行数据本身，若要在当前读情况下进行事务隔离和并发控制，必须要对数据行或数据表进行封锁。
