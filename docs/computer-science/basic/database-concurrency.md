@@ -102,7 +102,7 @@ ACID 特性间有下述关系：
 <img
     src="https://images.herculas.cn/image/blog/basic/database/concurrency/dirtyread.png"
     width="65%"
-    alt="更新丢失"
+    alt="脏读"
 />
 </div>
 
@@ -114,7 +114,7 @@ ACID 特性间有下述关系：
 <img
     src="https://images.herculas.cn/image/blog/basic/database/concurrency/unrepeatedread.png"
     width="65%"
-    alt="更新丢失"
+    alt="不可重复读"
 />
 </div>
 
@@ -126,7 +126,7 @@ ACID 特性间有下述关系：
 <img
     src="https://images.herculas.cn/image/blog/basic/database/concurrency/phantomread.png"
     width="55%"
-    alt="更新丢失"
+    alt="幻影读"
 />
 </div>
 
