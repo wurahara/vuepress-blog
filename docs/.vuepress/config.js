@@ -14,9 +14,20 @@ module.exports = {
       {
         text: '计算机',
         items: [
-          {text: '数据结构与算法', link: '/computer-science/algorithms/'},
-          {text: '计算机科学基础', link: '/computer-science/basic/'},
-          {text: '杂谈', link: '/computer-science/others/'}
+          {
+            text: '基础科学',
+            items: [
+              {text: '数据结构与算法', link: '/computer-science/algorithms/'},
+              {text: '计算机科学基础', link: '/computer-science/basic/'},
+            ]
+          },
+          {
+            text: '应用研究',
+            items: [
+              {text: 'Swift 与 Cocoa 编程', link: '/computer-science/swift/'},
+              {text: '杂谈', link: '/computer-science/others/'}
+            ]
+          }
         ]
       },
       { text: '历史', link: '/history/' },
