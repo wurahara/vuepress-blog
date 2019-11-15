@@ -3,7 +3,7 @@
 
     <el-row type="flex" justify="center">
       <el-col :span="24" align="center">
-        <img class="cons-pic" src="/pictures/under-construction.png">
+        <img class="cons-pic" src="https://images.herculas.cn/image/blog/management/under-construction.png">
       </el-col>
     </el-row>
 

@@ -2,7 +2,7 @@
   <div>
     <el-row type="flex" justify="center">
       <el-col :span="24" class="hero-slot">
-        <img src="pictures/photo.jpg" width="150">
+        <img src="https://images.herculas.cn/image/blog/management/title.png" width="180">
       </el-col>
     </el-row>
 
@@ -103,14 +103,14 @@ export default {
 <style scoped>
 .hero-slot {
   text-align: center;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .title-slot {
   text-align: center;
   font-size: 48px;
   font-weight: bold;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
