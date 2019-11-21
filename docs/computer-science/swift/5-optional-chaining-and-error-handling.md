@@ -329,3 +329,10 @@ func processFile(filename: String) throws {
     }
 }
 ```
+
+## 参考文献
+
+1. [The Swift Programming Language. Optional Chaining.](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html)
+2. [The Swift Programming Language. Error Handling.](https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html)
+3. [Swift 编程语言. 可选链.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/16_optional_chaining)
+4. [Swift 编程语言. 错误处理.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/17_error_handling)

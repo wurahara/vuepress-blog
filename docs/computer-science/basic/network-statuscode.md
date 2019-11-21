@@ -1,12 +1,15 @@
 ---
+series: 计算机网络
 title: HTTP的状态码
-categories: Others
-tags: HTTP
+categories: Basic
+tags: 
+  - Computer Network
+  - HTTP
 date: 2018-04-02 16:09:28
 ---
 
 
-之前在 [RESTful 架构简介](./RESTful.html) 一文中，我们已经简要地介绍了常用的几个 HTTP 状态码，但该文还不够全面，也不够系统。所以此次特地用这篇文章更详细地讨论 HTTP 状态码的基本知识和工程实践中的具体应用。
+之前在 [RESTful 架构简介](../frontend/RESTful.html) 一文中，我们已经简要地介绍了常用的几个 HTTP 状态码，但该文还不够全面，也不够系统。所以此次特地用这篇文章更详细地讨论 HTTP 状态码的基本知识和工程实践中的具体应用。
 
 <!-- more -->
 

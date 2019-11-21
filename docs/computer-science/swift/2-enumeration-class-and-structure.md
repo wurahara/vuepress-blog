@@ -238,3 +238,10 @@ if tenEighty === alsoTenEighty {
 }
 // 打印 tenEighty and alsoTenEighty refer to the same VideoMode instance.
 ```
+
+## 参考文献
+
+1. [The Swift Programming Language. Enumerations.](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html)
+2. [The Swift Programming Language. Structures and Classes.](https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html)
+3. [Swift 编程语言. 枚举.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/08_enumerations)
+4. [Swift 编程语言. 类和结构体.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/09_structures_and_classes)

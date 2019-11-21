@@ -25,6 +25,7 @@ module.exports = {
             text: '应用研究',
             items: [
               {text: 'Swift 与 Cocoa 编程', link: '/computer-science/swift/'},
+              {text: '前端工程化', link: '/computer-science/frontend/'},
               {text: '杂谈', link: '/computer-science/others/'}
             ]
           }

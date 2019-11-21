@@ -210,3 +210,8 @@ for item in breakfastList {
 // 1 x bacon ✘
 // 6 x eggs ✘
 ```
+
+## 参考文献
+
+1. [The Swift Programming Language. Initialization.](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html)
+2. [Swift 编程语言. 构造过程.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/14_initialization)

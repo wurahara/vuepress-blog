@@ -1,7 +1,10 @@
 ---
+series: 数据库系统理论
 title: 关系型数据库设计及其规范化
-categories: Others
-tags: database
+enable html: true
+categories: Basic
+tags:
+  - Database
 date: 2018-05-26 18:28:50
 ---
 
@@ -97,5 +100,5 @@ Codd 指出，规范化是一种基于关系的主码（或候选码）和函数
 
 1. [ Codd, E. F. (June 1970). "A Relational Model of Data for Large Shared Data Banks". Communications of the ACM. 13 (6): 377–387. doi:10.1145/362384.362685.](https://www2.cs.duke.edu/courses/cps216/spring05/papers/codd-1970.pdf)
 2. Codd, E. F. "Recent Investigations into Relational Data Base Systems." IBM Research Report RJ1385 (April 23, 1974). Republished in Proc. 1974 Congress (Stockholm, Sweden, 1974). New York, N.Y.: North-Holland (1974).
-3. [数据库系统：设计、实现与管理](https://book.douban.com/subject/15994778/)
-4. [数据库系统概念](https://book.douban.com/subject/10548379/)
+3. [Peter Rob, Carlos Coronel. 数据库系统：设计、实现与管理 (第8版).](https://book.douban.com/subject/15994778/)
+4. [Abraham Silberschatz, Henry F.Korth, S.Sudarshan. 数据库系统概念 (第6版).](https://book.douban.com/subject/10548379/)

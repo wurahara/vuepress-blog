@@ -422,3 +422,12 @@ print(trapezoid.draw())
 上面的例子中，`makeTrapezoid()` 函数将返回值类型定义为 `some Shape` ，因此该函数返回遵循 `Shape` 协议的给定类型，而不需要指定任何具体类型。这样写 `makeTrapezoid()` 函数可以表明它公共借口的基本性质，即返回的是一个几何图形，而不是部分的公共接口生成的特殊类型。
 
 这个例子凸显了不透明类型和泛型的相反之处。`makeTrapezoid()` 中，代码可以返回任意它需要的类型，只要这个类型遵循 `Shape` 协议，就像调用泛型函数时可以使用任何需要的类型一样。这个函数的调用代码需要采用通用的方式，就像泛型函数的实现代码一样，这样才能让返回的任意 `Shape` 类型的值都能被正常使用。
+
+## 参考文献
+
+1. [The Swift Programming Language. Type Casting.](https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html)
+2. [The Swift Programming Language. Generics.](https://docs.swift.org/swift-book/LanguageGuide/Generics.html)
+3. [The Swift Programming Language. Opaque Types.](https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html)
+4. [Swift 编程语言. 类型转换.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/18_type_casting)
+5. [Swift 编程语言. 泛型.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/22_generics)
+6. [Swift 编程语言. 不透明类型.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/23_opaque_types)

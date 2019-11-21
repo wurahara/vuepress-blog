@@ -323,3 +323,10 @@ protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
 ### 协议扩展
 
 协议可以通过扩展来为遵循协议的类型提供属性、方法以及下标实现。通过协议扩展，所有遵循协议的类型都能自动获得扩展新增的方法或属性，而无需任何额外修改。协议扩展可以为遵循协议的类型提供默认实现。
+
+## 参考文献
+
+1. [The Swift Programming Language. Extensions.](https://docs.swift.org/swift-book/LanguageGuide/Extensions.html)
+2. [The Swift Programming Language. Protocols.](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html)
+3. [Swift 编程语言. 扩展.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/20_extensions)
+4. [Swift 编程语言. 协议.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/21_protocols)

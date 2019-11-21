@@ -1,7 +1,7 @@
 ---
 title: ES2015新特性概述
 date: 2017-08-16 15:56:48
-categories: Others
+categories: Frontend
 tags: 
   - JavaScript
   - ECMAScript6

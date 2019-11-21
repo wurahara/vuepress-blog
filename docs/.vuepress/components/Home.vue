@@ -116,7 +116,7 @@ export default {
 
 .description-slot {
   text-align: center;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   color: gray;
   margin-bottom: 70px;

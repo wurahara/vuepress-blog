@@ -274,3 +274,12 @@ class Train: Vehicle {
   }
 }
 ```
+
+## 参考文献
+
+1. [The Swift Programming Language. Properties.](https://docs.swift.org/swift-book/LanguageGuide/Properties.html)
+2. [The Swift Programming Language. Methods.](https://docs.swift.org/swift-book/LanguageGuide/Methods.html)
+3. [The Swift Programming Language. Inheritance.](https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html)
+4. [Swift 编程语言. 属性.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/10_properties)
+5. [Swift 编程语言. 方法.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/11_methods)
+6. [Swift 编程语言. 继承.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/13_inheritance)

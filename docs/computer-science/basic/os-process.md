@@ -384,3 +384,9 @@ int mkfifoat(int fd, const char *path, mode_t mode);
    - 破坏占有和等待条件
    - 破坏不可抢占条件
    - 破坏环路等待条件
+
+## 参考文献
+
+1. [Andrew S. Tanenbaum. 现代操作系统 (第3版).](https://book.douban.com/subject/3852290/)
+2. [CyC2018. 计算机操作系统-进程管理.](https://github.com/CyC2018/CS-Notes/blob/master/notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20-%20%E8%BF%9B%E7%A8%8B%E7%AE%A1%E7%90%86.md)
+3. [CyC2018. 计算机操作系统-死锁.](https://github.com/CyC2018/CS-Notes/blob/master/notes/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%20-%20%E6%AD%BB%E9%94%81.md)

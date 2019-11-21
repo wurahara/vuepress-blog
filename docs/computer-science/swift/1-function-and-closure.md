@@ -232,3 +232,10 @@ completionHandlers.first?()
 print(instance.x)
 // 打印出 100
 ```
+
+## 参考文献
+
+1. [The Swift Programming Language. Functions.](https://docs.swift.org/swift-book/LanguageGuide/Functions.html)
+2. [The Swift Programming Language. Closures.](https://docs.swift.org/swift-book/LanguageGuide/Closures.html)
+3. [Swift 编程语言. 函数.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/06_functions)
+4. [Swift 编程语言. 闭包.](https://swiftgg.gitbook.io/swift/swift-jiao-cheng/07_closures)

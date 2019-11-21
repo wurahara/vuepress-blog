@@ -1,6 +1,6 @@
 ---
 title: RESTful接口实现指南
-categories: Others
+categories: Frontend
 tags: RESTful
 date: 2017-12-17 15:44:42
 ---
