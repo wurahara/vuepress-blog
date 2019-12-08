@@ -162,7 +162,6 @@ extension Array {
 
 `map` 和 `filter` 都作用在一个数组上，并产生另一个新的、经过修改的数组。但有时候，你可能会想把数组的所有元素合并为一个新的单一的值。比如，我们可能需要把容器中的值累加：
 
-
 ```swift
 let fibs = [0, 1, 1, 2, 3, 5]
 var total = 0
@@ -170,11 +169,9 @@ var total = 0
 for num in fibs {
     total = total + num
 }
-
 ```
 
 `reduce` 能够实现相似的功能，它把整个实现抽象成两个部分：一个初始值（本例中是 `0`），以及将中间值（`total`）和序列中的元素（`num`）进行合并的函数。使用 `reduce`，我们可以如此重写上面的例子：
-
 
 ```swift
 let sum = fibs.reduce(0) { total, num in
@@ -184,13 +181,11 @@ let sum = fibs.reduce(0) { total, num in
 
 运算符也是函数，因此上面的例子还能进一步简化：
 
-
 ```swift
 let sum = fibs.reduce(0, +)
 ```
 
 `reduce` 的输出值类型不必和元素的类型相同。比如如果我们想把一个整数数组转换为一个格式化字符串，可以这样实现：
-
 
 ```swift
 let str = fibs.reduce("") { (str, num) -> String in
@@ -218,7 +213,6 @@ extension Array {
 
 在下面的例子中，我们虚构一个 app 的设置界面，并使用字典作为模型数据层。该界面由一系列设置项组成，每一个设置项都有自己的名字（即键）和值。值可以是文本、数字或者布尔值中的一种，我们使用一个带有关联值的枚举类型来表示：
 
-
 ```swift
 enum Setting {
     case text(String)
@@ -242,7 +236,6 @@ defaultSettings["Name"]
 如果我们想要将一个默认的设置字典和某个用户更改过的自定义设置字典合并，应该怎么做呢？自定义的设置应该覆盖默认设置，同时得到的字典应该包含没有被自定义的键值。换句话说，我们想要合并两个字典，用来做合并的字典需要覆盖重复的键。
 
 字典中有一个方法 `merge(_:uniquingKeysWith:)`，它接受两个参数，第一个参数是要进行合并的键值对，第二个参数定义如何合并相同键的的两个值的合并策略。我们可以使用这个方法将一个字典合并到另一个字典中去：
-
 
 ```swift
 var settings = defaultSettings
@@ -269,7 +262,6 @@ settings.merge(overridenSettings, uniquingKeysWith: { $1 })
 
 Swift 支持数学集合的基本操作。比如可以在一个集合中求另一个集合的补集：
 
-
 ```swift
 let iPods: Set = [
     "iPod touch",
@@ -292,7 +284,6 @@ let currentIPods = iPods.subtracting(discontinuedIPods)
 
 求两个集合的交集：
 
-
 ```swift
 let touchScreen: Set = [
     "iPhone",
@@ -307,9 +298,7 @@ let iPodWithTouch = iPods.intersection(touchScreen)
 
 以及并集：
 
-
 ```swift
-
 var discontinued: Set = [
     "iBook",
     "Powerbook",
